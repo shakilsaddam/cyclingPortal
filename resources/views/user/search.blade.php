@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Register to Cycling Portal Bangladesh</title>
+    <title>Search Cycle by Chasses no</title>
     <link rel="icon" href="../del-code.com/images/icon/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="del-code.com" />
@@ -36,7 +36,6 @@
 <body>
 <div class="fh5co-loader"></div>
 <div id="page">
-
     <!-- begin navbar -->
     <nav class="fh5co-nav">
         <div class="container">
@@ -68,21 +67,29 @@
         </div>
     </nav>
     <!-- end navbar -->
+
     <!-- begin header -->
-    <header id="fh5co-header" class="fh5co-cover" style="background-image:url(../del-code.com/images/large/person/travel-5.jpg);">
-        <div class="overlay"></div>
+ <header id="fh5co-header" class="fh5co-cover" style="background-color: slategrey";>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-md-offset-0 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                            <h1>Never Stop Exploring.</h1>
-                        </div>
+                            <div class="container">
+                                <div class="inner-addon right-addon">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                    <input type="text" class="form-control" placeholder="Search" />
+                                </div><br>
+                                <div>
+                                    <input type="button" class="btn-primary" value="SEARCH"/>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+        </div>
+</header>
     <!-- end header -->
 
     <!-- begin footer -->

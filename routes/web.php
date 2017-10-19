@@ -14,4 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/registration', 'UsersController@index');
+Route::get('/home', 'UsersController@index');
+Route::get('/registration', 'UsersController@registration');
+Route::POST('/registration', 'UsersController@store');
