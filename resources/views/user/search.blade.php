@@ -41,7 +41,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <div id="fh5co-logo"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
+                    <div id="fh5co-logo" class="col-xs-11"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
+                    <div class="col-xs-1"><<a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>
                 </div>
                 <div class="col-xs-12 text-center menu-1">
                     <ul>
@@ -68,27 +69,54 @@
     </nav>
     <!-- end navbar -->
 
+
+<!-- begin of Login -->
+        <!-- <a href="#" data-toggle="modal" data-target="#login-modal">Login</a> -->
+<div>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Login to Your Account</h1><br>
+                <form action="/userhome" method="POST">
+                    <input type="text" name="user" placeholder="Email Address">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                </form>
+
+                <div>
+                    <a href="#">Register Now!</a>
+                    <br>
+                    <a href="#">Lost Your Password?</a>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- End of Login -->
+
+
+
     <!-- begin header -->
  <header id="fh5co-header" class="fh5co-cover" style="background-color: slategrey";>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-md-offset-0 text-center">
-                    <div class="display-t">
-                        <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                            <div class="container">
-                                <div class="inner-addon right-addon">
-                                    <i class="glyphicon glyphicon-search"></i>
-                                    <input type="text" class="form-control" placeholder="Search" />
-                                </div><br>
-                                <div>
-                                    <input type="button" class="btn-primary" value="SEARCH"/>
-                                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                        <div class="container">
+                            <div class="inner-addon right-addon">
+                                <i class="glyphicon glyphicon-search"></i>
+                                <input type="text" class="form-control" placeholder="Search" />
                             </div>
+                            <br>
+                            <div>
+                                <input type="button" class="btn-primary" value="SEARCH"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </header>
     <!-- end header -->
 

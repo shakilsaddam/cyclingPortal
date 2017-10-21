@@ -32,20 +32,26 @@ class UsersController extends Controller
         $registration_data->present_address = request('present_address');
 
         $file = Input::file('profile_photo');
-        $file->move('uploads',$file->getClientOriginalName());
-        echo $file->getClientOriginalName();
-        $registration_data->profile_photo = $file;
+        $filename = time()."-".$file->getClientOriginalName();
+        $file->move('uploads',$filename);
 
+        $registration_data->profile_photo = $filename;
+
+        /*$file = Input::file('profile_photo');
+        $time = time();
+        $file->move('uploads',$file->getClientOriginalName());
+        echo $file->time().getClientOriginalName();
+        $registration_data->profile_photo = $file->time().getClientOriginalName();
+    */
         //$registration_data->profile_photo = request('profile_photo');
         $registration_data->profile_id = random_int(24534, 50483);
-
-
-
-
         $registration_data->save();
+        return redirect('home');
+    }
 
-
-
-        //return redirect('/home');
+    public function userhome()
+    {
+        $registration_data=User_detail::All();
+        return $registration_data;
     }
 }
