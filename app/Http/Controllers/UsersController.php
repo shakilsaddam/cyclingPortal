@@ -49,9 +49,23 @@ class UsersController extends Controller
         return redirect('home');
     }
 
-    public function userhome()
+
+    public function userhome(Request $request)
     {
-        $registration_data=User_detail::All();
-        return $registration_data;
+        if(User_detail::attempt(array (
+            'email_address' => $request->get('email_address'),
+            'password' => $request->get('password')
+        )))
+        {
+            session([
+                'name' =>$request->get('email_address')
+            ]);
+            return "Logged in";
+        }
+        else
+        {
+            Session::flash('message', "Invalid credentials");
+            return "Invalid";
+        }
     }
 }
