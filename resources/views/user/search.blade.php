@@ -78,7 +78,7 @@
         <div class="modal-dialog">
             <div class="loginmodal-container">
                 <h1>Login to Your Account</h1><br>
-                <form action="/" method="POST">
+                <form method="POST">
                     <input type="text" name="email_address" placeholder="Email Address">
                     <input type="password" name="password" placeholder="Password">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">

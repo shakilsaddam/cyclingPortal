@@ -52,6 +52,20 @@ class UsersController extends Controller
 
     public function userhome(Request $request)
     {
+        $email_address=$request::get('email_address');
+        $password=$request::get('password');
+
+        $user=User_detail::where('email_address',$email_address,'password',$password)->first();
+
+        if(!is_null($user))
+        {
+            echo "Authenticated";
+        }
+        else
+        {
+            echo "Not Authenticated";
+        }
+/*
         if(User_detail::attempt(array (
             'email_address' => $request->get('email_address'),
             'password' => $request->get('password')
@@ -67,5 +81,6 @@ class UsersController extends Controller
             Session::flash('message', "Invalid credentials");
             return "Invalid";
         }
+*/
     }
 }
