@@ -48,7 +48,7 @@ class UsersController extends Controller
         //$registration_data->profile_photo = request('profile_photo');
         $registration_data->profile_id = random_int(24534, 50483);
         $registration_data->save();
-        return redirect('home');
+        return redirect('/');
     }
 
 

@@ -41,9 +41,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <div class="col-xs-1"></div>
-                    <div id="fh5co-logo" class="col-xs-10"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
-                    <div class="col-xs-1"><<a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>
+                    <div class="col-xs-2"></div>
+                    <div id="fh5co-logo" class="col-xs-8"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
+                    <div class="col-xs-1"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>
+                    <div class="col-xs-1"><a href="/registration">Register</a></div>
                 </div>
                 <div class="col-xs-12 text-center menu-1">
                     <ul>
