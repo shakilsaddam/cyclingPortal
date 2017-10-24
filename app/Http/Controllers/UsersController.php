@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use Illuminate\Support\Facades\DB;
 use App\User_detail;
 use Illuminate\Support\Facades\Input;
 
@@ -55,9 +56,15 @@ class UsersController extends Controller
         $email_address=$request::get('email_address');
         $password=$request::get('password');
 
-        $user=User_detail::where('email_address',$email_address,'password',$password)->first();
+       // echo $email_address;
+       // echo $password;
 
-        if(!is_null($user))
+        //$results = User_detail::where('email_address',$email_address)->get();
+        $user1=DB::select('select * from user_details where email_address = ? AND password = ?', [$email_address,$password]);
+        //return $user1;
+        //$user=User_detail::where('email_address',$email_address,'password',$password)->first();
+
+        if(!empty($user1))
         {
             echo "Authenticated";
         }
