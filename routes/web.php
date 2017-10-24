@@ -13,6 +13,7 @@
 Route::get('/', 'UsersController@index');
 Route::POST('/', 'UsersController@userhome');
 Route::POST('/userhome', 'UsersController@userhome');
+//Route::get('/user/home','UsersController@home');
 Route::get('/registration', 'UsersController@create');
 Route::POST('/registration', 'UsersController@store');
 Route::get('/test',function (){
