@@ -33,11 +33,11 @@
     <![endif]-->
 
 </head>
-<body>
+<body >
 <div class="fh5co-loader"></div>
 <div id="page">
     <!-- begin navbar -->
-    <nav class="fh5co-nav">
+    <nav class="fh5co-nav" style="background-color: slategrey">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
@@ -94,6 +94,7 @@
             </div>
         </div>
 </div>
+
 <!-- End of Login -->
 
 
@@ -108,7 +109,7 @@
                         <div class="container">
                             <div class="inner-addon right-addon">
                                 <i class="glyphicon glyphicon-search"></i>
-                                <input type="text" class="form-control" placeholder="Search" />
+                                <input type="text" class="form-control" placeholder="Search" style="background-color: inherit "/>
                             </div>
                             <br>
                             <div>
