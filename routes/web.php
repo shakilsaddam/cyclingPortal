@@ -17,5 +17,8 @@ Route::POST('/userhome', 'UsersController@userhome');
 Route::get('/registration', 'UsersController@create');
 Route::POST('/registration', 'UsersController@store');
 Route::get('/test',function (){
-    return view('test');
+    return view('layout.test');
+});
+Route::get('/test1',function (){
+    return view('layout.footer');
 });
