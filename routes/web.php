@@ -20,5 +20,5 @@ Route::get('/test',function (){
     return view('layout.footer');
 });
 Route::get('/test1',function (){
-    return view('layout.header');
+    return view('user.userhome');
 });
