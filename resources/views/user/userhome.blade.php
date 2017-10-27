@@ -104,8 +104,37 @@
         <!-- begin header -->
         <header id="fh5co-header" style="background-color: slategrey";>
             <div class="container">
-                <label><h1>Registration Form</h1></label>
+                <div class="container" style="text-align: center">
+                    <label><h2>Your owned bikes</h2></label>
+                </div>
+
+
                 <div class="col-lg-12 well">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8">
+                        <h3>No Entry Found!! Please Click <b>Add Bike </b> button to add your bike!</h3> <br>
+                        <input type="button" class="btn-primary" name="add_bike" value="Add Bike"/>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+
+                <div class="container" style="text-align: center">
+                    <label><h2>Personal Information</h2></label>
+                </div>
+
+                <div class="col-lg-12 well">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8">
+                        <h3>No Entry Found!! Please Click <b>Add Bike </b> button to add your bike!</h3> <br>
+                        <input type="button" class="btn-primary" name="add_bike" value="Add Bike"/>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                {{--<div class="col-lg-12 well">
                     <div class="row">
                         <form method="POST" action="/registration" enctype="multipart/form-data">
                             <div class="col-sm-12">
@@ -154,7 +183,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </header>
         <!-- end header -->

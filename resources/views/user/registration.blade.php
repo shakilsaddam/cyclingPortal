@@ -102,7 +102,7 @@
         <!-- begin header -->
         <header id="fh5co-header" style="background-color: slategrey";>
             <div class="container">
-                <label><h1>Registration Form</h1></label>
+                <label><h2>Registration Form</h2></label>
                 <div class="col-lg-12 well">
                     <div class="row">
                         <form method="POST" action="/registration" enctype="multipart/form-data">
