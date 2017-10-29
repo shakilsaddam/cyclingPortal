@@ -120,7 +120,80 @@
                     </div>
                 </div>
 
-                <div class="container" style="text-align: center">
+                <!--View Bikes info if exists Bike no-01 -->
+                <div>
+                    <div class="col-lg-5 well">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <label>Brand: </label>
+                                <label>Model: </label>
+                                <label>Chasses No: </label>
+                                <label>Bike Status:</label>
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                        </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <lavel>Change Bike Status</lavel>
+                                    <select>
+                                        <option value="ok">Everything OK</option>
+                                        <option value="stollen">Stollen</option>
+                                        <option value="Damaged">Damaged</option>
+                                    </select>
+                                    <input type="button" class="btn-primary" value="Update" name="update_bike_status"/>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
+                                    <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2" style="background-color: slategrey";>
+
+                    </div>
+
+                <!--View Bikes info if exists Bike no-02 -->
+                <div>
+                    <div class="col-lg-5 well">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <label>Brand: </label>
+                                <label>Model: </label>
+                                <label>Chasses No: </label>
+                                <label>Bike Status:</label>
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <lavel>Change Bike Status</lavel>
+                                <select>
+                                    <option value="ok">Everything OK</option>
+                                    <option value="stollen">Stollen</option>
+                                    <option value="Damaged">Damaged</option>
+                                </select>
+                                <input type="button" class="btn-primary" value="Update" name="update_bike_status"/>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
+                                <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="container" style="text-align: center; margin-bottom: 100px;">
+
+                </div>
+
+                <div class="container" style="text-align: center; margin-top: 100px;">
                     <label><h2>Personal Information</h2></label>
                 </div>
 
@@ -134,56 +207,6 @@
                     <div class="col-sm-2">
                     </div>
                 </div>
-                {{--<div class="col-lg-12 well">
-                    <div class="row">
-                        <form method="POST" action="/registration" enctype="multipart/form-data">
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-6 form-group">
-                                        <label>First Name</label>
-                                        <input type="text" placeholder="Enter First Name Here.." class="form-control" name="fname">
-                                    </div>
-                                    <div class="col-sm-6 form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" placeholder="Enter Last Name Here.." class="form-control" name="lname">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input type="text" placeholder="Enter Email Address" class="form-control" name="email_address">
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6 form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" name="password">
-                                    </div>
-                                    <div class="col-sm-6 form-group">
-                                        <label>Confirm Password</label>
-                                        <input type="password" class="form-control" name="confirm_pass">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Mobile Number</label>
-                                    <input type="text" placeholder="Enter Mobile Number" class="form-control" name="mobile_no">
-                                </div>
-                                <div class="form-group">
-                                    <label>Facebook ID</label>
-                                    <input type="text" class="form-control" name="facebook_id">
-                                </div>
-                                <div class="form-group">
-                                    <label>Present Address</label>
-                                    <textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="present_address"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Profile Photo</label>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="profile_photo"/>
-                                </div>
-                                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-lg btn-info">SUBMIT</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>--}}
             </div>
         </header>
         <!-- end header -->
