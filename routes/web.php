@@ -22,3 +22,4 @@ Route::get('/test',function (){
 Route::get('/test1',function (){
     return view('user.userhome');
 });
+Route::get('/test2', 'FetchUserInfoController@fetchBikeInfo');

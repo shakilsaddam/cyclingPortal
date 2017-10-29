@@ -125,12 +125,18 @@
                     <div class="col-lg-5 well">
                         <div class="col-sm-12">
                             <div class="col-sm-6">
-                                <label>Brand: </label>
-                                <label>Model: </label>
-                                <label>Chasses No: </label>
-                                <label>Bike Status:</label>
+                                Brand: <br>
+                                Model: <br>
+                                Chasses No: <br>
+                                Bike Status:
                             </div>
                             <div class="col-sm-6">
+                                @foreach ($bikes as $bike)
+                                    <label>{{$bike->brand}}</label>
+                                    <label>{{$bike->model}}</label>
+                                    <label>{{$bike->chasses_no}}</label>
+                                    <label>{{$bike->present_status}}</label>
+                                @endforeach
 
                             </div>
                         </div>
