@@ -1,0 +1,9 @@
+Test query
+------------
+select bike_info.brand,bike_info.model,bike_info.chasses_no,bike_info.present_status
+FROM bike_info
+JOIN bike_history
+ON bike_info.id=bike_history.bike_id
+JOIN user_details
+ON bike_history.user_id=user_details.id
+WHERE user_details.id=2
