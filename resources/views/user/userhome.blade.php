@@ -188,16 +188,42 @@
                         <div class="col-lg-6 well">
                             <div class="col-sm-12">
                                 <div class="col-sm-6">
-                                    <label>Brand: </label>
-                                    <label>Model: </label>
-                                    <label>Chasses No: </label>
-                                    <label>Bike Status:</label>
+                                    <table>
+                                        <tr>
+                                            <td>Brand:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Model:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chasses No:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bike Status:</td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <div class="col-sm-6">
+{{--                                    <table>
+                                        @foreach ($bikes as $bike)
+                                            <tr>
+                                                <td><b>{{$bike->brand}}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>{{$bike->model}}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>{{$bike->chasses_no}}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>{{$bike->present_status}}</b></td>
+                                            </tr>
+                                        @endforeach
+                                    </table>--}}
 
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="margin-top: 20px;">
                                 <div class="col-sm-6">
                                     <lavel>Change Bike Status</lavel>
                                     <select>
@@ -213,6 +239,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="button" class="btn-primary center-block" value="Add New Bike"/>
                     </div>
 
                 @endif
