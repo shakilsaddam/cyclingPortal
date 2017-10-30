@@ -107,8 +107,6 @@
                 <div class="container" style="text-align: center">
                     <label><h2>Your owned bikes</h2></label>
                 </div>
-
-
                 <div class="col-lg-12 well">
                     <div class="col-sm-2">
                     </div>
@@ -122,25 +120,45 @@
 
                 <!--View Bikes info if exists Bike no-01 -->
                 <div>
-                    <div class="col-lg-5 well">
+                    <div class="col-lg-6 well">
                         <div class="col-sm-12">
                             <div class="col-sm-6">
-                                Brand: <br>
-                                Model: <br>
-                                Chasses No: <br>
-                                Bike Status:
+                                <table>
+                                    <tr>
+                                        <td>Brand:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Model:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chasses No:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bike Status:</td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="col-sm-6">
-                                @foreach ($bikes as $bike)
-                                    <label>{{$bike->brand}}</label>
-                                    <label>{{$bike->model}}</label>
-                                    <label>{{$bike->chasses_no}}</label>
-                                    <label>{{$bike->present_status}}</label>
-                                @endforeach
+                                <table>
+                                    @foreach ($bikes as $bike)
+                                    <tr>
+                                        <td><b>{{$bike->brand}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$bike->model}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$bike->chasses_no}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$bike->present_status}}</b></td>
+                                    </tr>
+                                    @endforeach
+                                </table>
 
                             </div>
                         </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="margin-top: 20px;">
                                 <div class="col-sm-6">
                                     <lavel>Change Bike Status</lavel>
                                     <select>
@@ -158,13 +176,13 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2" style="background-color: slategrey";>
+                    {{--<div class="col-lg-2" style="background-color: slategrey";>
 
-                    </div>
+                    </div>--}}
 
                 <!--View Bikes info if exists Bike no-02 -->
                 <div>
-                    <div class="col-lg-5 well">
+                    <div class="col-lg-6 well">
                         <div class="col-sm-12">
                             <div class="col-sm-6">
                                 <label>Brand: </label>
@@ -193,7 +211,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+
 
                 <div class="container" style="text-align: center; margin-bottom: 100px;">
 
@@ -204,14 +222,68 @@
                 </div>
 
                 <div class="col-lg-12 well">
+
                     <div class="col-sm-2">
                     </div>
+
                     <div class="col-sm-8">
-                        <h3>No Entry Found!! Please Click <b>Add Bike </b> button to add your bike!</h3> <br>
-                        <input type="button" class="btn-primary" name="add_bike" value="Add Bike"/>
+                        <div class="col-sm-12">
+                            <div class="col-sm-5">
+                                <table>
+                                    <tr>
+                                        <td>Name: </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email: </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile No: </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Facebook ID: </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Present Address: </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Profile Photo: </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="col-sm-7">
+                                <table>
+                                    @foreach($personal_info as $pi)
+                                    <tr>
+                                        <td><b>{{$pi->fname}} {{$pi->lname}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$pi->email_address}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$pi->mobile_no}}</b></td>
+                                    </tr>
+                                        <tr>
+                                            <td><b>{{$pi->facebook_id}}</b></td>
+                                        </tr>
+                                    <tr>
+                                        <td><b>{{$pi->present_address}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img height="120" width="100" src="\uploads\{{$pi->profile_photo}}"></td>
+                                    </tr>
+
+                                   @endforeach
+                                </table>
+                            </div>
+                            <input type="button" class="btn-primary" name="edit_personal_info" value="EDIT"/>
+                        </div>
+
                     </div>
+
                     <div class="col-sm-2">
                     </div>
+
                 </div>
             </div>
         </header>

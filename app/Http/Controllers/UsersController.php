@@ -71,7 +71,7 @@ class UsersController extends Controller
             session([
                 'email' =>$request::get('email_address')
             ]);
-            return view('user.userhome');
+            return redirect('/userhome');
         }
         else
         {
