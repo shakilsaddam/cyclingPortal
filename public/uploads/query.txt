@@ -7,3 +7,11 @@ ON bike_info.id=bike_history.bike_id
 JOIN user_details
 ON bike_history.user_id=user_details.id
 WHERE user_details.id=2
+
+
+
+
+Links:
+----
+Where Query
+https://laracasts.com/discuss/channels/eloquent/eloquent-select-where-query
