@@ -43,7 +43,7 @@
                 <div class="col-xs-12 text-center">
                     <div class="col-xs-2"></div>
                     <div id="fh5co-logo" class="col-xs-8"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
-                    <div class="col-xs-2" style="color: white">Logged in as <b>{{Session::get('email')}}</b></div>
+                    <div class="col-xs-2" style="color: white">Logged in as <b>{{Session::get('user_name')}}</b></div>
 
                 </div>
                 <div class="col-xs-12 text-center menu-1">
@@ -107,57 +107,60 @@
                 <div class="container" style="text-align: center">
                     <label><h2>Your owned bikes</h2></label>
                 </div>
-                <div class="col-lg-12 well">
-                    <div class="col-sm-2">
-                    </div>
-                    <div class="col-sm-8">
-                        <h3>No Entry Found!! Please Click <b>Add Bike </b> button to add your bike!</h3> <br>
-                        <input type="button" class="btn-primary" name="add_bike" value="Add Bike"/>
-                    </div>
-                    <div class="col-sm-2">
-                    </div>
-                </div>
 
-                <!--View Bikes info if exists Bike no-01 -->
-                <div>
-                    <div class="col-lg-6 well">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6">
-                                <table>
-                                    <tr>
-                                        <td>Brand:</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Model:</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Chasses No:</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bike Status:</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="col-sm-6">
-                                <table>
-                                    @foreach ($bikes as $bike)
-                                    <tr>
-                                        <td><b>{{$bike->brand}}</b></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{$bike->model}}</b></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{$bike->chasses_no}}</b></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{$bike->present_status}}</b></td>
-                                    </tr>
-                                    @endforeach
-                                </table>
-
-                            </div>
+                @if(count($bikes)==0)
+                    <div class="col-lg-12 well">
+                        <div class="col-sm-2">
                         </div>
+                        <div class="col-sm-8">
+                            <h3>No Entry Found!! Please Click <b>Add Bike </b> button to add your bike!</h3> <br>
+                            <input type="button" class="btn-primary" name="add_bike" value="Add Bike"/>
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                    </div>
+
+                    @else
+                <!--View Bikes info if exists Bike no-01 -->
+                    <div>
+                        <div class="col-lg-6 well">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <table>
+                                        <tr>
+                                            <td>Brand:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Model:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chasses No:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bike Status:</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <table>
+                                        @foreach ($bikes as $bike)
+                                            <tr>
+                                                <td><b>{{$bike->brand}}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>{{$bike->model}}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>{{$bike->chasses_no}}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>{{$bike->present_status}}</b></td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+
+                                </div>
+                            </div>
                             <div class="col-sm-12" style="margin-top: 20px;">
                                 <div class="col-sm-6">
                                     <lavel>Change Bike Status</lavel>
@@ -181,36 +184,39 @@
                     </div>--}}
 
                 <!--View Bikes info if exists Bike no-02 -->
-                <div>
-                    <div class="col-lg-6 well">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6">
-                                <label>Brand: </label>
-                                <label>Model: </label>
-                                <label>Chasses No: </label>
-                                <label>Bike Status:</label>
-                            </div>
-                            <div class="col-sm-6">
+                    <div>
+                        <div class="col-lg-6 well">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <label>Brand: </label>
+                                    <label>Model: </label>
+                                    <label>Chasses No: </label>
+                                    <label>Bike Status:</label>
+                                </div>
+                                <div class="col-sm-6">
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="col-sm-6">
-                                <lavel>Change Bike Status</lavel>
-                                <select>
-                                    <option value="ok">Everything OK</option>
-                                    <option value="stollen">Stollen</option>
-                                    <option value="Damaged">Damaged</option>
-                                </select>
-                                <input type="button" class="btn-primary" value="Update" name="update_bike_status"/>
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
-                                <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <lavel>Change Bike Status</lavel>
+                                    <select>
+                                        <option value="ok">Everything OK</option>
+                                        <option value="stollen">Stollen</option>
+                                        <option value="Damaged">Damaged</option>
+                                    </select>
+                                    <input type="button" class="btn-primary" value="Update" name="update_bike_status"/>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
+                                    <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                @endif
+
 
 
                 <div class="container" style="text-align: center; margin-bottom: 100px;">

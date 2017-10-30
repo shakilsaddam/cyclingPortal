@@ -61,7 +61,8 @@ class UsersController extends Controller
        // echo $password;
 
         //$results = User_detail::where('email_address',$email_address)->get();
-        $user=DB::select('select * from user_details where email_address = ? AND password = ?', [$email_address,$password]);
+        $user=DB::selectOne('select * from user_details where email_address = ? AND password = ?', [$email_address,$password]);
+        //dd($user);
         //return $user;
 
         //$user=User_detail::where('email_address',$email_address,'password',$password)->first();
@@ -69,7 +70,8 @@ class UsersController extends Controller
         if(!empty($user))
         {
             session([
-                'email' =>$request::get('email_address')
+                'user_id' => $user->id,
+                'user_name' =>$user->fname
             ]);
             return redirect('/userhome');
         }
