@@ -34,4 +34,9 @@ class FetchUserInfoController extends Controller
         return view('user.userhome',compact('bikes','personal_info'));
         //return view('user.userhome')->with('bikes',$bikes,'personal_info',$personal_info);
     }
+
+    public function addNewBike()
+    {
+        return view('user.addbike');
+    }
 }
