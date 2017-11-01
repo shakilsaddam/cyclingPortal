@@ -26,3 +26,5 @@ Route::get('/test1',function (){
 Route::get('/test2', 'FetchUserInfoController@fetchBikeInfo');
 Route::get('/addbike', 'FetchUserInfoController@addNewBike');
 Route::POST('/addbike', 'FetchUserInfoController@addBikeStore');
+Route::get('/search', 'FetchUserInfoController@search');
+Route::POST('/search', 'FetchUserInfoController@searchResult');

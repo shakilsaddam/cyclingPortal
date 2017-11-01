@@ -74,4 +74,18 @@ class FetchUserInfoController extends Controller
         return view('user.addbike');
 
     }
+
+    public function search()
+    {
+        return view('search');
+    }
+
+    public function searchResult()
+    {
+        $bike_info2 = 'Dummy1234';
+        //dd(request()->all());
+        $bike_info = Bike_info::select('*')->where('chasses_no','=',$bike_info2)->get();
+
+    return $bike_info;
+    }
 }
