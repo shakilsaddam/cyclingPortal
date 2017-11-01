@@ -32,8 +32,12 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.css">--}}
+
 </head>
 <body >
+
 <div class="fh5co-loader"></div>
 <div id="page">
     <!-- begin navbar -->
@@ -95,7 +99,7 @@
                 <label><h2>Add New Bike</h2></label>
                 <div class="col-lg-12 well">
                     <div class="row">
-                        <form method="POST" action="/registration" enctype="multipart/form-data">
+                        <form method="POST" action="/addbike" enctype="multipart/form-data">
                             <div class="col-sm-12">
                                 <div class="row">
                                     <div class="col-sm-6 form-group">
@@ -112,7 +116,15 @@
                                         <label>Bike Photos:</label>
                                         <input type="file" accept="image/png, image/jpeg, image/gif" name="bike_photo"/><br>
                                         <label>Buying Recept:</label>
-                                        <input type="file" accept="image/png, image/jpeg, image/gif" name="buying_recept"/><br><br><br><br>
+                                        <input type="file" accept="image/png, image/jpeg, image/gif" name="buying_recept"/>
+                                        <br><br>
+                                        <label>Present Status:</label>
+                                        <select name="present_status">
+                                            <option value="Everything OK">Everything OK</option>
+                                            <option value="Stollen">Stollen</option>
+                                            <option value="Damaged">Damaged</option>
+                                        </select>
+                                        <br><br>
                                         <label>Component Change Description:</label>
                                         <textarea placeholder="Enter Bike Change Description.." rows="3" class="form-control" name="change_description"></textarea>
                                     </div>

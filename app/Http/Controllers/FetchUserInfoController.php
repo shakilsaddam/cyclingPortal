@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 //use Illuminate\Contracts\Session\Session;
+use App\Bike_history;
+use App\Bike_info;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User_detail;
@@ -16,18 +18,16 @@ class FetchUserInfoController extends Controller
         $user_id = Session::get('user_id');
         //$bikes = DB::table('bike_info')->where('id','=','1')->get();
     $bikes = DB::select(DB::raw
-    ('select bike_info.brand,bike_info.model,bike_info.chasses_no,bike_info.present_status
-    FROM bike_info
-    JOIN bike_history
-    ON bike_info.id=bike_history.bike_id
+    ('select bike_infos.brand,bike_infos.model,bike_infos.chasses_no,bike_infos.present_status
+    FROM bike_infos
+    JOIN bike_histories
+    ON bike_infos.id=bike_histories.bike_id
     JOIN user_details
-    ON bike_history.user_id=user_details.id
+    ON bike_histories.user_id=user_details.id
     WHERE user_details.id= :user_id'),array(
     'user_id' => $user_id,)
     );
 
-
-        //$bikes = DB::table('bike_info')->where('id','=','?')->get();
         $personal_info = User_detail::where('id','=',$user_id)->get();
 
         //return $personal_info;
@@ -38,5 +38,40 @@ class FetchUserInfoController extends Controller
     public function addNewBike()
     {
         return view('user.addbike');
+    }
+
+    public function addBikeStore()
+    {
+        //dd(request()->all());
+
+        $bike_info_data = new Bike_info;
+
+        //$bike_info_data->id = '1';
+        $bike_info_data->brand = request('bike_brand');
+        $bike_info_data->model = request('bike_model');
+        $bike_info_data->chasses_no = request('chasses_no');
+        $bike_info_data->bike_photo = request('bike_photo');
+        $bike_info_data->buying_recept = request('buying_recept');
+        $bike_info_data->description = request('bike_description');
+        $bike_info_data->component_change_detail= request('change_description');
+        $bike_info_data->present_status= request('present_status');
+        $bike_info_data->bike_reg_date= new \DateTime();
+
+        $bike_info_data->save();
+
+        echo '<script language="javascript">';
+        echo 'alert("Sucessfully Inserted !!!")';
+        echo '</script>';
+
+        $last_id = Bike_info::select('id')->max('id');
+
+        Bike_history::insert([
+            'user_id' => Session::get('user_id'),
+            'bike_id' => $last_id,
+            'is_owner' =>1
+        ]);
+
+        return view('user.addbike');
+
     }
 }

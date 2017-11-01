@@ -9,6 +9,11 @@ ON bike_history.user_id=user_details.id
 WHERE user_details.id=2
 
 
+To rename database table:
+--------------------------
+ALTER TABLE exampletable RENAME TO new_table_name;
+
+
 
 
 Links:
