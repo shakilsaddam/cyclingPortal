@@ -12,6 +12,7 @@
 */
 Route::get('/', 'UsersController@index');
 Route::POST('/', 'UsersController@userhome');
+Route::POST('/hl1', 'FetchUserInfoController@searchResult');
 //Route::POST('/userhome', 'UsersController@userhome');
 Route::get('/userhome','FetchUserInfoController@fetchBikeInfo');
 //Route::get('/user/home','UsersController@home');

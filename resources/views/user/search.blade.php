@@ -79,7 +79,7 @@
         <div class="modal-dialog">
             <div class="loginmodal-container">
                 <h1>Login to Your Account</h1><br>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     <input type="text" name="email_address" placeholder="Email Address">
                     <input type="password" name="password" placeholder="Password">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">
@@ -107,14 +107,17 @@
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeInUp">
                         <div class="container">
+                            <form action="/search" method="POST" enctype="multipart/form-data">
                             <div class="inner-addon right-addon">
                                 <i class="glyphicon glyphicon-search"></i>
-                                <input type="text" class="form-control" placeholder="Search" style="background-color: inherit "/>
+                                <input type="text" name="search" class="form-control" placeholder="Search" style="background-color: inherit "/>
                             </div>
                             <br>
                             <div>
-                                <input type="button" class="btn-primary" value="SEARCH"/>
+                                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                                <button type="submit" class="btn-primary">SEARCH</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

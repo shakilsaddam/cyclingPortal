@@ -17,15 +17,15 @@ class FetchUserInfoController extends Controller
     {
         $user_id = Session::get('user_id');
         //$bikes = DB::table('bike_info')->where('id','=','1')->get();
-    $bikes = DB::select(DB::raw
-    ('select bike_infos.brand,bike_infos.model,bike_infos.chasses_no,bike_infos.present_status
-    FROM bike_infos
-    JOIN bike_histories
-    ON bike_infos.id=bike_histories.bike_id
-    JOIN user_details
-    ON bike_histories.user_id=user_details.id
-    WHERE user_details.id= :user_id'),array(
-    'user_id' => $user_id,)
+        $bikes = DB::select(DB::raw
+        ('select bike_infos.brand,bike_infos.model,bike_infos.chasses_no,bike_infos.present_status
+        FROM bike_infos
+        JOIN bike_histories
+        ON bike_infos.id=bike_histories.bike_id
+        JOIN user_details
+        ON bike_histories.user_id=user_details.id
+        WHERE user_details.id= :user_id'),array(
+        'user_id' => $user_id,)
     );
 
         $personal_info = User_detail::where('id','=',$user_id)->get();
@@ -71,6 +71,7 @@ class FetchUserInfoController extends Controller
             'is_owner' =>1
         ]);
 
+        return $bike_info_data;
         return view('user.addbike');
 
     }
@@ -80,12 +81,12 @@ class FetchUserInfoController extends Controller
         return view('search');
     }
 
-    public function searchResult()
+    public function searchResult(Request $request)
     {
-        $bike_info2 = 'Dummy1234';
+        $chasses_no = $request->input('search') ;
         //dd(request()->all());
-        $bike_info = Bike_info::select('*')->where('chasses_no','=',$bike_info2)->get();
+        $bike_info = Bike_info::select('*')->where('chasses_no','=',$chasses_no)->get();
 
-    return $bike_info;
+        return view('result',compact('bike_info',$bike_info,'chasses_no',$chasses_no));
     }
 }

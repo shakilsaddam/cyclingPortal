@@ -129,7 +129,7 @@
                                         <textarea placeholder="Enter Bike Change Description.." rows="3" class="form-control" name="change_description"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-lg btn-info">SUBMIT</button>
                             </div>

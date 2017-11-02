@@ -79,7 +79,6 @@ class UsersController extends Controller
         {
             Session::flash('message', "Invalid credentials");
             return "Invalid";
-            //echo "Not Authenticated";
         }
 /*
         if(User_detail::attempt(array (
@@ -98,5 +97,10 @@ class UsersController extends Controller
             return "Invalid";
         }
 */
+    }
+
+    public function searchBike($chasses_no)
+    {
+        return $chasses_no;
     }
 }
