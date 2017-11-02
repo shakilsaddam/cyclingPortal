@@ -28,4 +28,5 @@ Route::get('/test2', 'FetchUserInfoController@fetchBikeInfo');
 Route::get('/addbike', 'FetchUserInfoController@addNewBike');
 Route::POST('/addbike', 'FetchUserInfoController@addBikeStore');
 Route::get('/search', 'FetchUserInfoController@search');
+Route::get('/search/{chasses_no}', 'FetchUserInfoController@APIsearchResult');
 Route::POST('/search', 'FetchUserInfoController@searchResult');

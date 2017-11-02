@@ -18,7 +18,7 @@ class FetchUserInfoController extends Controller
         $user_id = Session::get('user_id');
         //$bikes = DB::table('bike_info')->where('id','=','1')->get();
         $bikes = DB::select(DB::raw
-        ('select bike_infos.brand,bike_infos.model,bike_infos.chasses_no,bike_infos.present_status
+        ('select bike_infos.brand,bike_infos.bike_model,bike_infos.chasses_no,bike_infos.present_status
         FROM bike_infos
         JOIN bike_histories
         ON bike_infos.id=bike_histories.bike_id
@@ -48,7 +48,7 @@ class FetchUserInfoController extends Controller
 
         //$bike_info_data->id = '1';
         $bike_info_data->brand = request('bike_brand');
-        $bike_info_data->model = request('bike_model');
+        $bike_info_data->bike_model = request('bike_model');
         $bike_info_data->chasses_no = request('chasses_no');
         $bike_info_data->bike_photo = request('bike_photo');
         $bike_info_data->buying_recept = request('buying_recept');
@@ -85,7 +85,39 @@ class FetchUserInfoController extends Controller
     {
         $chasses_no = $request->input('search') ;
         //dd(request()->all());
-        $bike_info = Bike_info::select('*')->where('chasses_no','=',$chasses_no)->get();
+$bike_info=DB::select(DB::raw
+('SELECT bike_infos.brand,bike_infos.bike_model,bike_infos.bike_photo,bike_infos.present_status,user_details.fname,user_details.profile_photo 
+FROM bike_infos
+JOIN bike_histories
+ON bike_infos.id=bike_histories.bike_id
+JOIN user_details
+ON bike_histories.user_id=user_details.id
+WHERE bike_infos.chasses_no= :chasses_no'),array('chasses_no'=>$chasses_no,));
+
+
+
+        //$bike_info = Bike_info::select('*')->where('chasses_no','=',$chasses_no)->get();
+        return $bike_info;
+
+        return view('result',compact('bike_info',$bike_info,'chasses_no',$chasses_no));
+    }
+
+    public function APIsearchResult($chasses_no)
+    {
+
+        $bike_info=DB::select(DB::raw
+        ('SELECT bike_infos.brand,bike_infos.bike_model,bike_infos.bike_photo,bike_infos.present_status,user_details.fname,user_details.profile_photo 
+FROM bike_infos
+JOIN bike_histories
+ON bike_infos.id=bike_histories.bike_id
+JOIN user_details
+ON bike_histories.user_id=user_details.id
+WHERE bike_infos.chasses_no= :chasses_no'),array('chasses_no'=>$chasses_no,));
+
+
+
+        //$bike_info = Bike_info::select('*')->where('chasses_no','=',$chasses_no)->get();
+        return $bike_info;
 
         return view('result',compact('bike_info',$bike_info,'chasses_no',$chasses_no));
     }

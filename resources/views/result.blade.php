@@ -79,25 +79,25 @@
             <table>
                 @foreach ($bike_info as $bike)
                     <tr>
-                        <td><h3><b>{{$bike->brand}} {{$bike->model}}</b></h3></td>
+                        <td colspan="2"><h3><b>{{$bike->brand}} {{$bike->bike_model}}</b></h3></td>
                     </tr>
 
                     <tr>
                         <td><h3>Bike Photo:</h3></td>
-                        <td>{{$bike->chasses_no}}</td>
+                        <td><img height="60px" width="60px" src="\uploads\{{$bike->bike_photo}}"></td>
                     </tr>
                     <tr>
                         <td><h3>Owner:</h3></td>
-                        <td><b>{{$bike->model}}</b></td>
+                        <td><h3><b>{{$bike->fname}}</b></h3></td>
                     </tr>
                     <tr>
                         <td><h3>Owner Photo:</h3></td>
-                        <td><b>{{$bike->model}}</b></td>
+                        <td><img height="60px" width="60px" src="\uploads\{{$bike->profile_photo}}"></td>
                     </tr>
                     <tr>
                         <td><h3>Present Status:</h3></td>
                         <td><h3>
-                                @if($bike->present_status=='Everything OK')
+                                @if($bike->present_status=='Everything Ok')
                                     <b style="color: darkgreen">Everything OK!!
 
                                 @elseif($bike->present_status=='Stollen')

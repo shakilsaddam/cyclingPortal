@@ -117,7 +117,7 @@
                         </div>
                         <div class="col-sm-8">
                             <h3>No Entry Found!! Please Click <b>Add Bike </b> button to add your bike!</h3> <br>
-                            <input type="button" class="btn-primary" name="add_bike" value="Add Bike"/>
+                            <button type="submit" class="btn-primary" onclick="location.href = '/addbike'">Add Bike</button>
                         </div>
                         <div class="col-sm-2">
                         </div>
@@ -151,7 +151,7 @@
                                                 <td><b>{{$bike->brand}}</b></td>
                                             </tr>
                                             <tr>
-                                                <td><b>{{$bike->model}}</b></td>
+                                                <td><b>{{$bike->bike_model}}</b></td>
                                             </tr>
                                             <tr>
                                                 <td><b>{{$bike->chasses_no}}</b></td>
@@ -242,7 +242,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="button" class="btn-primary center-block" value="Add New Bike"/>
+                        <button type="submit" class="btn-primary center-block" onclick="location.href = '/addbike'">Add New Bike</button>
                     </div>
 
                 @endif
