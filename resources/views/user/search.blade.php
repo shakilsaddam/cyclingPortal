@@ -107,7 +107,7 @@
                 <div class="display-t">
                     <div class="display-tc animate-box" data-animate-effect="fadeInUp">
                         <div class="container">
-                            <form action="/search" method="POST" enctype="multipart/form-data">
+                            <form action="search" method="POST" enctype="multipart/form-data">
                             <div class="inner-addon right-addon">
                                 <i class="glyphicon glyphicon-search"></i>
                                 <input type="text" name="search" class="form-control" placeholder="Search" style="background-color: inherit "/>

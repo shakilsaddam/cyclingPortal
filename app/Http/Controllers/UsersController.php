@@ -78,7 +78,11 @@ class UsersController extends Controller
         else
         {
             Session::flash('message', "Invalid credentials");
-            return "Invalid";
+            echo '<script language="javascript">';
+            echo 'alert("Invalid Username or Password !!!")';
+            echo '</script>';
+
+            return view('user.search');
         }
 /*
         if(User_detail::attempt(array (

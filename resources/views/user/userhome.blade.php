@@ -242,7 +242,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn-primary center-block" onclick="location.href = '/addbike'">Add New Bike</button>
+                        <button type="submit" class="btn-primary center-block" onclick="location.href = 'addbike'">Add New Bike</button>
                     </div>
 
                 @endif

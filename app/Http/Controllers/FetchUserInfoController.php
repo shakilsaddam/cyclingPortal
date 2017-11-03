@@ -71,7 +71,7 @@ class FetchUserInfoController extends Controller
             'is_owner' =>1
         ]);
 
-        return $bike_info_data;
+        //return $bike_info_data;
         return view('user.addbike');
 
     }
@@ -97,7 +97,6 @@ WHERE bike_infos.chasses_no= :chasses_no'),array('chasses_no'=>$chasses_no,));
 
 
         //$bike_info = Bike_info::select('*')->where('chasses_no','=',$chasses_no)->get();
-        return $bike_info;
 
         return view('result',compact('bike_info',$bike_info,'chasses_no',$chasses_no));
     }
