@@ -84,7 +84,7 @@
 
                     <tr>
                         <td><h3>Bike Photo:</h3></td>
-                        <td><img height="60px" width="60px" src="\uploads\{{$bike->bike_photo}}"></td>
+                        <td><img height="60px" width="60px" src="uploads\{{$bike->bike_photo}}"></td>
                     </tr>
                     <tr>
                         <td><h3>Owner:</h3></td>
@@ -92,7 +92,7 @@
                     </tr>
                     <tr>
                         <td><h3>Owner Photo:</h3></td>
-                        <td><img height="60px" width="60px" src="\uploads\{{$bike->profile_photo}}"></td>
+                        <td><img height="60px" width="60px" src="uploads\{{$bike->profile_photo}}"></td>
                     </tr>
                     <tr>
                         <td><h3>Present Status:</h3></td>
