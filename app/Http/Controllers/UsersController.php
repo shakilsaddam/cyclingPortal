@@ -57,8 +57,6 @@ class UsersController extends Controller
         $email_address=$request::get('email_address');
         $password=$request::get('password');
 
-       // echo $email_address;
-       // echo $password;
 
         //$results = User_detail::where('email_address',$email_address)->get();
         $user=DB::selectOne('select * from user_details where email_address = ? AND password = ?', [$email_address,$password]);
