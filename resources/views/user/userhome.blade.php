@@ -126,8 +126,11 @@
             @elseif(count($bikes)==1)
         <!--View Bikes info if exists Bike no-01 -->
             <div>
+                <div class="col-lg-3"> </div>
+
                 <div class="col-lg-6 well">
                     <div class="col-sm-12">
+
                         <div class="col-sm-6">
                             <table>
                                 <tr>
@@ -163,6 +166,7 @@
                             </table>
 
                         </div>
+
                     </div>
                     <div class="col-sm-12" style="margin-top: 20px;">
                         <div class="col-sm-6">
@@ -180,14 +184,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3"> </div>
             </div>
+        <div class="col-sm-12">
+            <button type="submit" class="btn-primary center-block" onclick="location.href = 'addbike'">Add New Bike</button>
+        </div>
 
             {{--<div class="col-lg-2" style="background-color: slategrey";>
 
             </div>--}}
-
+        @elseif(count($bikes)>=2)
         <!--View Bikes info if exists Bike no-02 -->
             <div>
+
+                    @foreach ($bikes as $bike)
                 <div class="col-lg-6 well">
                     <div class="col-sm-12">
                         <div class="col-sm-6">
@@ -207,7 +217,67 @@
                             </table>
                         </div>
                         <div class="col-sm-6">
-{{--                                    <table>
+                            <table>
+                                {{--@foreach ($bikes as $bike)--}}
+                                    <tr>
+                                        <td><b>{{$bike->brand}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$bike->bike_model}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$bike->chasses_no}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{$bike->present_status}}</b></td>
+                                    </tr>
+                                {{--@endforeach--}}
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12" style="margin-top: 20px;">
+                        <div class="col-sm-6">
+                            <lavel>Change Bike Status</lavel>
+                            <select>
+                                <option value="ok">Everything OK</option>
+                                <option value="stollen">Stollen</option>
+                                <option value="Damaged">Damaged</option>
+                            </select>
+                            <input type="button" class="btn-primary" value="Update" name="update_bike_status"/>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
+                            <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                        </div>
+                    </div>
+                </div>
+                    @endforeach
+
+                <button type="submit" class="btn-primary center-block" onclick="location.href = 'addbike'">Add New Bike</button>
+            </div>
+
+            {{--<div>
+                <div class="col-lg-6 well">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <table>
+                                <tr>
+                                    <td>Brand:</td>
+                                </tr>
+                                <tr>
+                                    <td>Model:</td>
+                                </tr>
+                                <tr>
+                                    <td>Chasses No:</td>
+                                </tr>
+                                <tr>
+                                    <td>Bike Status:</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-sm-6">
+--}}{{--                                    <table>
                                 @foreach ($bikes as $bike)
                                     <tr>
                                         <td><b>{{$bike->brand}}</b></td>
@@ -222,7 +292,7 @@
                                         <td><b>{{$bike->present_status}}</b></td>
                                     </tr>
                                 @endforeach
-                            </table>--}}
+                            </table>--}}{{--
 
                         </div>
                     </div>
@@ -243,7 +313,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn-primary center-block" onclick="location.href = 'addbike'">Add New Bike</button>
-            </div>
+            </div>--}}
 
         @endif
 
