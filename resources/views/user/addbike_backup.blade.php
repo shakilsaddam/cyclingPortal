@@ -45,49 +45,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <div class="col-xs-2">
-
-                    </div>
-
-                    <div id="fh5co-logo" class="col-xs-8">
-                        <div class="col-sm-12">
-                            <a href="index.html">Cycling Portal Bangladesh<span>.</span></a>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="col-xs-12 text-center menu-1">
-                                <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="disc.html">Travelling Blog</a></li>
-
-                                    <li><a href="disc.html">Forum</a></li>
-                                    <li><a href="about.html">Buy or Sell</a></li>
-                                    <li><a href="blog.html">About</a></li>
-                                    <!--   <li><a href="contact.html">Contact</a></li>  -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-xs-2"></div>
+                    <div id="fh5co-logo" class="col-xs-8"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
 
                     <div class="col-xs-2" style="color: white">
                         <div class="col-xs-9">
-                            Logged as
-                            <ul>
-                                <li class="has-dropdown">
-                                    <a href="#"><b>{{Session::get('user_name')}}</b></a>
-                                    <ul class="dropdown">
-                                        <li><a href="logout">LOGOUT</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            Logged in as <b>{{Session::get('user_name')}}</b>
                         </div>
-
                         <div class="col-xs-3">
-                            <img height="50" width="50" src="uploads\{{Session::get('user_photo')}}" >
+                            <img height="50" width="50" src="uploads\shakil.jpg" >
                         </div>
 
                     </div>
                 </div>
+                <div class="col-xs-12 text-center menu-1">
+                    <ul>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="disc.html">Travelling Blog</a></li>
 
+                        <li><a href="disc.html">Forum</a></li>
+                        <li><a href="about.html">Buy or Sell</a></li>
+                        <li><a href="blog.html">About</a></li>
+                        <!--   <li><a href="contact.html">Contact</a></li>  -->
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

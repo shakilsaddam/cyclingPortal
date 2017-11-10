@@ -69,7 +69,8 @@ class UsersController extends Controller
         {
             session([
                 'user_id' => $user->id,
-                'user_name' =>$user->fname
+                'user_name' =>$user->fname,
+                'user_photo' =>$user->profile_photo
             ]);
             return redirect('/userhome');
         }
@@ -104,5 +105,14 @@ class UsersController extends Controller
     public function searchBike($chasses_no)
     {
         return $chasses_no;
+    }
+
+    public function logout()
+    {
+        Session::flush();
+        echo '<script language="javascript">';
+        echo 'alert("Successfully Logged out !!!")';
+        echo '</script>';
+        return redirect('');
     }
 }
