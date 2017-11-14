@@ -18,7 +18,7 @@ class FetchUserInfoController extends Controller
         $user_id = Session::get('user_id');
 
         if (empty($user_id)) {
-            
+
             echo '<script language="javascript">';
             echo 'alert("Please Login First !!!")';
             echo '</script>';
@@ -29,7 +29,7 @@ class FetchUserInfoController extends Controller
 
             //$bikes = DB::table('bike_info')->where('id','=','1')->get();
             $bikes = DB::select(DB::raw
-            ('select bike_infos.brand,bike_infos.bike_model,bike_infos.chasses_no,bike_infos.present_status
+            ('select bike_infos.id,bike_infos.brand,bike_infos.bike_model,bike_infos.chasses_no,bike_infos.present_status
         FROM bike_infos
         JOIN bike_histories
         ON bike_infos.id=bike_histories.bike_id

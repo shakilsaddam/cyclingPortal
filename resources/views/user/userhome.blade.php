@@ -194,7 +194,8 @@
                                 <option value="stollen">Stollen</option>
                                 <option value="Damaged">Damaged</option>
                             </select>
-                            <input type="button" class="btn-primary" value="Update" name="update_bike_status"/>
+
+                            {{--<input type="button" class="btn-primary" value="Update" name="update_bike_status"/>--}}
                         </div>
                         <div class="col-sm-6">
                             <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
@@ -262,7 +263,8 @@
                                 <option value="stollen">Stollen</option>
                                 <option value="Damaged">Damaged</option>
                             </select>
-                            <input type="button" class="btn-primary" value="Update" name="update_bike_status"/>
+                            <button type="submit" class="btn-primary" onclick="location.href = 'update/bikestatus/{{$bike->id}}'">Update</button>
+                            {{--<input type="button" class="btn-primary" value="Update" name="update_bike_status"/>--}}
                         </div>
                         <div class="col-sm-6">
                             <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>

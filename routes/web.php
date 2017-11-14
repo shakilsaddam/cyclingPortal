@@ -32,3 +32,5 @@ Route::POST('/addbike', 'FetchUserInfoController@addBikeStore');
 Route::get('/search', 'FetchUserInfoController@search');
 Route::get('/search/{chasses_no}', 'FetchUserInfoController@APIsearchResult');
 Route::POST('/search', 'FetchUserInfoController@searchResult');
+
+Route::get('update/bikestatus/{id}', 'UpdateUsersData@updateBikeStatus');
