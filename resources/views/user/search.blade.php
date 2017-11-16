@@ -145,7 +145,6 @@
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">
                     <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
                 </form>
-
                 <div>
                     <a href="#">Register Now!</a>
                     <br>
@@ -153,11 +152,9 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
 <!-- End of Login -->
-
-
 
     <!-- begin header -->
  <header id="fh5co-header" class="fh5co-cover" style="background-color: slategrey";>

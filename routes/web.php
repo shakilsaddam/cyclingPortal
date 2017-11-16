@@ -18,6 +18,7 @@ Route::get('/userhome','FetchUserInfoController@fetchBikeInfo');
 //Route::get('/user/home','UsersController@home');
 Route::get('/registration', 'UsersController@create');
 Route::POST('/registration', 'UsersController@store');
+Route::get('/userlogin','UsersController@login');
 Route::get('/logout', 'UsersController@logout');
 
 Route::get('/test',function (){

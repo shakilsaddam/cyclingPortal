@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Input;
 
 class UsersController extends Controller
 {
+
+
     public function index()
     {
         //$user_details = User_detail::All();
@@ -105,6 +107,24 @@ class UsersController extends Controller
     public function searchBike($chasses_no)
     {
         return $chasses_no;
+    }
+
+    public function login()
+    {
+
+        /*creating object of FetchUserInfoController Class to use the function in_sessoin().
+        By using this function, we can verify if user logged in or not.*/
+
+        $result1= new FetchUserInfoController;
+
+        if($result1->in_session()==false)
+        {
+            return view('user.userlogin');
+        }else
+        {
+            return redirect('/');
+        }
+
     }
 
     public function logout()

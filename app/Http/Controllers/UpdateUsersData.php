@@ -13,6 +13,10 @@ class UpdateUsersData extends Controller
         $bike_info->present_status='Everything OK';
         $bike_info->save();
 
-        return "Hellow";
+        echo '<script language="javascript">';
+        echo 'alert("Sucessfully Updated !!!")';
+        echo '</script>';
+
+        return view('user.userhome');
     }
 }

@@ -13,19 +13,40 @@ use Session;
 
 class FetchUserInfoController extends Controller
 {
-    public function fetchBikeInfo()
+
+    //Checking if session has data or not. It will return eiter true or false.
+    public function in_session()
     {
         $user_id = Session::get('user_id');
+        if(!empty($user_id))
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
 
-        if (empty($user_id)) {
+    }
 
-            echo '<script language="javascript">';
-            echo 'alert("Please Login First !!!")';
-            echo '</script>';
-            return view('user.search');
+    public function fetchBikeInfo()
+    {
+       //If session has no data then redirect to /userlogin page with a session variable login_failed_message.
+        //Else return user.userhome page with some data.
+        if($this->in_session()==false)
+        {
+        //$user_id = Session::get('user_id');
+        echo '<script language="javascript">';
+        echo 'alert("Please Login First !!!")';
+        echo '</script>';
 
+        session([
+            'login_failed_message' => "Please Login First"
+        ]);
+
+        return redirect('userlogin');
 
         } else {
+            $user_id = Session::get('user_id');
 
             //$bikes = DB::table('bike_info')->where('id','=','1')->get();
             $bikes = DB::select(DB::raw
