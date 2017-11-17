@@ -189,7 +189,7 @@
                     <div class="col-sm-12" style="margin-top: 20px;">
                         <div class="col-sm-6">
                             <lavel>Change Bike Status</lavel>
-                            <select>
+                            <select name="bike_status">
                                 <option value="ok">Everything OK</option>
                                 <option value="stollen">Stollen</option>
                                 <option value="Damaged">Damaged</option>
@@ -258,7 +258,7 @@
                     <div class="col-sm-12" style="margin-top: 20px;">
                         <div class="col-sm-6">
                             <lavel>Change Bike Status</lavel>
-                            <select>
+                            <select name="bike_status">
                                 <option value="ok">Everything OK</option>
                                 <option value="stollen">Stollen</option>
                                 <option value="Damaged">Damaged</option>

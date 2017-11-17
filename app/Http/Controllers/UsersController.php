@@ -122,7 +122,7 @@ class UsersController extends Controller
             return view('user.userlogin');
         }else
         {
-            return redirect('/');
+            return redirect('/userhome');
         }
 
     }
