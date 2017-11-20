@@ -32,8 +32,30 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
+    <script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
+    <script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.validate.js"></script>
+
+
+
 </head>
 <body >
+
+<script>
+    function check_pass() {
+        if (document.getElementById('password').value ==
+            document.getElementById('confirm_pass').value) {
+            document.getElementById('submit').disabled = false;
+            document.getElementById('message').innerHTML = '';
+
+        } else {
+            document.getElementById('submit').disabled = true;
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'password not matching !!!';
+        }
+    }
+</script>
+
+
 <div class="fh5co-loader"></div>
 <div id="page">
     <!-- begin navbar -->
@@ -100,11 +122,11 @@
                                 <div class="row">
                                     <div class="col-sm-6 form-group">
                                         <label>Password</label>
-                                        <input type="password" class="form-control" name="password" required>
+                                        <input type="password" class="form-control" name="password" id="password" onchange='check_pass();'>
                                     </div>
                                     <div class="col-sm-6 form-group">
-                                        <label>Confirm Password</label>
-                                        <input type="password" class="form-control" name="confirm_pass" required>
+                                        <label>Confirm Password</label><span id='message' style="text-align: right"></span>
+                                        <input type="password" class="form-control" name="confirm_pass" id="confirm_pass" onchange='check_pass();'>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -124,7 +146,8 @@
                                     <input type="file" accept="image/png, image/jpeg, image/gif" name="profile_photo" required/>
                                 </div>
                                 <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-lg btn-info">SUBMIT</button>
+                                <input type="submit"  value="SUBMIT" class="btn btn-lg btn-info" id="submit" disabled/>
+                                {{--<button type="submit" name="submit" class="btn btn-lg btn-info" disabled>SUBMIT</button>--}}
                             </div>
                         </form>
                     </div>
