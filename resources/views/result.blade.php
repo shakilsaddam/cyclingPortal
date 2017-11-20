@@ -152,29 +152,28 @@
 <!-- End of Search Result Showing -->
 
 
-<!-- begin of Login -->
-<div>
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="loginmodal-container">
-                <h1>Login to Your Account</h1><br>
-                <form method="POST">
-                    <input type="text" name="email_address" placeholder="Email Address">
-                    <input type="password" name="password" placeholder="Password">
-                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                    <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                </form>
-
-                <div>
-                    <a href="#">Register Now!</a>
-                    <br>
-                    <a href="#">Lost Your Password?</a>
-                </div>
+<!-- begin footer -->
+<footer id="fh5co-footer">
+    <div class="container">
+        <div class="row copyright">
+            <div class="col-md-12 text-center">
+                <p>
+                    <small class="block">&copy; Md. Saddam Hossain shakil. All Rights Reserved.</small>
+                    <small class="block">Designed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a> </small>
+                </p>
+                <ul class="fh5co-social-icons">
+                    <li><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                    <li><a href="https://www.behance.net/delcode920dc4"><i class="icon-behance"></i></a></li>
+                </ul>
             </div>
         </div>
     </div>
+</footer>
+<!-- end footer -->
 
-    <!-- End of Login -->
+
 
     </div>
 

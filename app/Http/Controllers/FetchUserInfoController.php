@@ -87,35 +87,48 @@ class FetchUserInfoController extends Controller
     {
         //dd(request()->all());
 
-        $bike_info_data = new Bike_info;
+        $chasses_no = request('chasses_no');
+        $is_bike_exists = Bike_info::where('chasses_no',$chasses_no)->get();
 
-        //$bike_info_data->id = '1';
-        $bike_info_data->brand = request('bike_brand');
-        $bike_info_data->bike_model = request('bike_model');
-        $bike_info_data->chasses_no = request('chasses_no');
-        $bike_info_data->bike_photo = request('bike_photo');
-        $bike_info_data->buying_recept = request('buying_recept');
-        $bike_info_data->description = request('bike_description');
-        $bike_info_data->component_change_detail= request('change_description');
-        $bike_info_data->present_status= request('present_status');
-        $bike_info_data->bike_reg_date= new \DateTime();
+        if(count($is_bike_exists)>=1)
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Bike Already Exist, Try Another !!!")';
+            echo '</script>';
 
-        $bike_info_data->save();
+            return view('user.addbike');
+        }else
+        {
+            $bike_info_data = new Bike_info;
 
-        echo '<script language="javascript">';
-        echo 'alert("Sucessfully Inserted !!!")';
-        echo '</script>';
+            //$bike_info_data->id = '1';
+            $bike_info_data->brand = request('bike_brand');
+            $bike_info_data->bike_model = request('bike_model');
+            $bike_info_data->chasses_no = request('chasses_no');
+            $bike_info_data->bike_photo = request('bike_photo');
+            $bike_info_data->buying_recept = request('buying_recept');
+            $bike_info_data->description = request('bike_description');
+            $bike_info_data->component_change_detail= request('change_description');
+            $bike_info_data->present_status= request('present_status');
+            $bike_info_data->bike_reg_date= new \DateTime();
 
-        $last_id = Bike_info::select('id')->max('id');
+            $bike_info_data->save();
 
-        Bike_history::insert([
-            'user_id' => Session::get('user_id'),
-            'bike_id' => $last_id,
-            'is_owner' =>1
-        ]);
+            $last_id = Bike_info::select('id')->max('id');
 
-        //return $bike_info_data;
-        return view('user.addbike');
+            Bike_history::insert([
+                'user_id' => Session::get('user_id'),
+                'bike_id' => $last_id,
+                'is_owner' =>1
+            ]);
+
+            echo '<script language="javascript">';
+            echo 'alert("Sucessfully Inserted !!!")';
+            echo '</script>';
+
+            //return $bike_info_data;
+            return view('user.addbike');
+        }
 
     }
 
