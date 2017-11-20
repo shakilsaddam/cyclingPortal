@@ -30,20 +30,20 @@ class FetchUserInfoController extends Controller
 
     public function fetchBikeInfo()
     {
-       //If session has no data then redirect to /userlogin page with a session variable login_failed_message.
+        //If session has no data then redirect to /userlogin page with a session variable login_failed_message.
         //Else return user.userhome page with some data.
         if($this->in_session()==false)
         {
-        //$user_id = Session::get('user_id');
-        echo '<script language="javascript">';
-        echo 'alert("Please Login First !!!")';
-        echo '</script>';
+            //$user_id = Session::get('user_id');
+            echo '<script language="javascript">';
+            echo 'alert("Please Login First !!!")';
+            echo '</script>';
 
-        session([
-            'login_failed_message' => "Please Login First"
-        ]);
+            session([
+                'login_failed_message' => "Please Login First"
+            ]);
 
-        return redirect('userlogin');
+            return redirect('userlogin');
 
         } else {
             $user_id = Session::get('user_id');
@@ -70,7 +70,17 @@ class FetchUserInfoController extends Controller
 
     public function addNewBike()
     {
-        return view('user.addbike');
+        //Session Validation.
+        if($this->in_session()==false)
+        {
+            session([
+                'login_failed_message' => "Please Login First"
+            ]);
+            return redirect('userlogin');
+        }else
+        {
+            return view('user.addbike');
+        }
     }
 
     public function addBikeStore()
@@ -118,8 +128,8 @@ class FetchUserInfoController extends Controller
     {
         $chasses_no = $request->input('search') ;
         //dd(request()->all());
-$bike_info=DB::select(DB::raw
-('SELECT bike_infos.brand,bike_infos.bike_model,bike_infos.bike_photo,bike_infos.present_status,user_details.fname,user_details.profile_photo 
+        $bike_info=DB::select(DB::raw
+        ('SELECT bike_infos.brand,bike_infos.bike_model,bike_infos.bike_photo,bike_infos.present_status,user_details.fname,user_details.profile_photo 
 FROM bike_infos
 JOIN bike_histories
 ON bike_infos.id=bike_histories.bike_id

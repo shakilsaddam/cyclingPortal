@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 use Session;
+use Validator;
 use Illuminate\Support\Facades\DB;
 use App\User_detail;
 use Illuminate\Support\Facades\Input;
@@ -19,10 +20,44 @@ class UsersController extends Controller
     }
     public function create()
     {
-        return view('user.registration');
+        $obj_fetch_user_info = new FetchUserInfoController;
+        if($obj_fetch_user_info->in_session()==true)
+        {
+            session([
+                'logged_in_message' => "You are already logged in"
+            ]);
+
+            return redirect('userhome');
+        }else
+        {
+            return view('user.registration');
+        }
+
     }
     public function store()
     {
+
+        $validator = Validator::make(
+            array(
+                'fname'=>'shakil',
+                'lname'=>'saddam'
+
+            ),
+            array(
+                'fname'=>'required',
+                'lname'=>'required'
+            )
+        );
+
+        if($validator->fails())
+        {
+            return "Failed";
+        }
+        /*$this->validate(request(),[
+            'fname'=>'required'
+        ]);*/
+
+
         //dd(request()->all());
 
         $registration_data = new User_detail;
@@ -83,25 +118,25 @@ class UsersController extends Controller
             echo 'alert("Invalid Username or Password !!!")';
             echo '</script>';
 
-            return view('user.search');
+            return view('user.userlogin');
         }
-/*
-        if(User_detail::attempt(array (
-            'email_address' => $request->get('email_address'),
-            'password' => $request->get('password')
-        )))
-        {
-            session([
-                'name' =>$request->get('email_address')
-            ]);
-            return "Logged in";
-        }
-        else
-        {
-            Session::flash('message', "Invalid credentials");
-            return "Invalid";
-        }
-*/
+        /*
+                if(User_detail::attempt(array (
+                    'email_address' => $request->get('email_address'),
+                    'password' => $request->get('password')
+                )))
+                {
+                    session([
+                        'name' =>$request->get('email_address')
+                    ]);
+                    return "Logged in";
+                }
+                else
+                {
+                    Session::flash('message', "Invalid credentials");
+                    return "Invalid";
+                }
+        */
     }
 
     public function searchBike($chasses_no)
@@ -115,9 +150,9 @@ class UsersController extends Controller
         /*creating object of FetchUserInfoController Class to use the function in_sessoin().
         By using this function, we can verify if user logged in or not.*/
 
-        $result1= new FetchUserInfoController;
+        $obj_fetch_user_controller= new FetchUserInfoController;
 
-        if($result1->in_session()==false)
+        if($obj_fetch_user_controller->in_session()==false)
         {
             return view('user.userlogin');
         }else
