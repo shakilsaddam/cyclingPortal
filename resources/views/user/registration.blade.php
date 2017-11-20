@@ -74,32 +74,6 @@
     <!-- end navbar -->
 
 
-    <!-- begin of Login -->
-    <!-- <a href="#" data-toggle="modal" data-target="#login-modal">Login</a> -->
-    <div>
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog">
-                <div class="loginmodal-container">
-                    <h1>Login to Your Account</h1><br>
-                    <form method="POST">
-                        <input type="text" name="email_address" placeholder="Email Address">
-                        <input type="password" name="password" placeholder="Password">
-                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                        <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                    </form>
-
-                    <div>
-                        <a href="/registration">Register Now!</a>
-                        <br>
-                        <a href="#">Lost Your Password?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- End of Login -->
-
-
 
         <!-- begin header -->
         <header id="fh5co-header" style="background-color: slategrey";>
@@ -112,42 +86,42 @@
                                 <div class="row">
                                     <div class="col-sm-6 form-group">
                                         <label>First Name</label>
-                                        <input type="text" placeholder="Enter First Name Here.." class="form-control" name="fname">
+                                        <input type="text" placeholder="Enter First Name Here.." class="form-control" name="fname" required>
                                     </div>
                                     <div class="col-sm-6 form-group">
                                         <label>Last Name</label>
-                                        <input type="text" placeholder="Enter Last Name Here.." class="form-control" name="lname">
+                                        <input type="text" placeholder="Enter Last Name Here.." class="form-control" name="lname" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input type="text" placeholder="Enter Email Address" class="form-control" name="email_address">
+                                    <input type="text" placeholder="Enter Email Address" class="form-control" name="email_address" required>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6 form-group">
                                         <label>Password</label>
-                                        <input type="password" class="form-control" name="password">
+                                        <input type="password" class="form-control" name="password" required>
                                     </div>
                                     <div class="col-sm-6 form-group">
                                         <label>Confirm Password</label>
-                                        <input type="password" class="form-control" name="confirm_pass">
+                                        <input type="password" class="form-control" name="confirm_pass" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Mobile Number</label>
-                                    <input type="text" placeholder="Enter Mobile Number" class="form-control" name="mobile_no">
+                                    <input type="text" placeholder="Enter Mobile Number" class="form-control" name="mobile_no" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Facebook ID</label>
-                                    <input type="text" class="form-control" name="facebook_id">
+                                    <input type="text" class="form-control" name="facebook_id" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Present Address</label>
-                                    <textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="present_address"></textarea>
+                                    <textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="present_address" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Profile Photo</label>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="profile_photo"/>
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="profile_photo" required/>
                                 </div>
                                 <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-lg btn-info">SUBMIT</button>

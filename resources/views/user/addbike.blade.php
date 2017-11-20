@@ -132,29 +132,30 @@
                                 <div class="row">
                                     <div class="col-sm-6 form-group">
                                         <label>Bike Brand:</label>
-                                        <input type="text" placeholder="Enter Brand name ..." class="form-control" name="bike_brand">
+                                        <input type="text" placeholder="Enter Brand name ..." class="form-control" name="bike_brand" required>
                                         <label>Bike Model:</label>
-                                        <input type="text" placeholder="Enter Model ..." class="form-control" name="bike_model">
+                                        <input type="text" placeholder="Enter Model ..." class="form-control" name="bike_model" required>
                                         <label>Chasses No:</label>
-                                        <input type="text" placeholder="Enter Chasses no ..." class="form-control" name="chasses_no">
+                                        <input type="text" placeholder="Enter Chasses no ..." class="form-control" name="chasses_no" required>
                                         <label>Bike Description:</label>
-                                        <textarea placeholder="Enter Bike Description.." rows="3" class="form-control" name="bike_description"></textarea>
+                                        <textarea placeholder="Enter Bike Description.." rows="3" class="form-control" name="bike_description" required></textarea>
                                     </div>
                                     <div class="col-sm-6 form-group">
                                         <label>Bike Photos:</label>
-                                        <input type="file" accept="image/png, image/jpeg, image/gif" name="bike_photo"/><br>
+                                        <input type="file" accept="image/png, image/jpeg, image/gif" name="bike_photo" required/><br>
                                         <label>Buying Recept:</label>
-                                        <input type="file" accept="image/png, image/jpeg, image/gif" name="buying_recept"/>
+                                        <input type="file" accept="image/png, image/jpeg, image/gif" name="buying_recept" required/>
                                         <br><br>
                                         <label>Present Status:</label>
-                                        <select name="present_status">
+                                        <select name="present_status" required="required">
+                                            <option value="">--Select--</option>
                                             <option value="Everything OK">Everything OK</option>
                                             <option value="Stollen">Stollen</option>
                                             <option value="Damaged">Damaged</option>
                                         </select>
                                         <br><br>
                                         <label>Component Change Description:</label>
-                                        <textarea placeholder="Enter Bike Change Description.." rows="3" class="form-control" name="change_description"></textarea>
+                                        <textarea placeholder="Enter Bike Change Description.." rows="3" class="form-control" name="change_description" required></textarea>
                                     </div>
                                 </div>
 

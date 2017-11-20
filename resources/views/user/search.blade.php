@@ -140,8 +140,8 @@
             <div class="loginmodal-container">
                 <h1>Login to Your Account</h1><br>
                 <form method="POST" enctype="multipart/form-data">
-                    <input type="text" name="email_address" placeholder="Email Address">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="text" name="email_address" placeholder="Email Address" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">
                     <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
                 </form>
