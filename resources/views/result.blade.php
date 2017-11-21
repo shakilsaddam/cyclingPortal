@@ -42,7 +42,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center">
-                <div class="col-xs-2">
+
+                {{--<div class="col-xs-2">
 
                 </div>
 
@@ -63,9 +64,11 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>--}}
 
                 @if(Session::has('user_id'))
+
+                    @include('layout.menu')
                     <div class="col-xs-2" style="color: white">
                         <div class="col-xs-9">
                             Logged as
@@ -84,6 +87,7 @@
                         </div>
                     </div>
                 @else
+                    @include('layout.menu1')
                     <div class="col-xs-1"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>
                     <div class="col-xs-1"><a href="/registration">Register</a></div>
                 @endif

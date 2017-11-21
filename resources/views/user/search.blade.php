@@ -46,8 +46,6 @@
             <div class="col-xs-12 text-center">
 
 
-                    @include('layout.menu')
-
                 {{--</div>
 
                 <div id="fh5co-logo" class="col-xs-8">
@@ -71,6 +69,8 @@
                 </div>--}}
 
                 @if(Session::has('user_id'))
+
+                @include('layout.menu')
                 <div class="col-xs-2" style="color: white">
                     <div class="col-xs-9">
                         Logged as
@@ -89,6 +89,8 @@
                     </div>
                 </div>
                 @else
+
+                    @include('layout.menu1')
                     <div class="col-xs-1"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>
                     <div class="col-xs-1"><a href="/registration">Register</a></div>
                 @endif
@@ -167,48 +169,47 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-0 text-center">
                 <div class="display-t">
+                    <form action="search" method="POST" enctype="multipart/form-data">
                     <div class="display-tc animate-box" data-animate-effect="fadeInUp">
                         <div class="container">
-                            <form action="search" method="POST" enctype="multipart/form-data">
-                            <div class="inner-addon right-addon">
+
+                            <div class="col-sm-1"></div>
+
+                            {{--<form action="search" method="POST" enctype="multipart/form-data">--}}
+                            <div class="inner-addon right-addon col-sm-10">
+                                <h2><label style="color: #0b0b0b">Search Bike</label></h2>
                                 <i class="glyphicon glyphicon-search"></i>
-                                <input type="text" name="search" class="form-control" placeholder="Search" style="background-color: inherit "/>
+                                <input type="text" name="search" class="form-control" placeholder="Search" style="background-color: white "/>
                             </div>
-                            <br>
-                            <div>
-                                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn-primary">SEARCH</button>
-                            </div>
-                            </form>
+                            <div class="col-sm-1"></div>
+
+
+                            {{--</form>--}}
+
+                        </div>
+
+                        <br>
+                        <div>
+                            <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn-primary">SEARCH</button>
                         </div>
                     </div>
+                    </form>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </header>
     <!-- end header -->
 
-    <!-- begin footer -->
-    <footer id="fh5co-footer">
-        <div class="container">
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <small class="block">&copy; Md. Saddam Hossain shakil. All Rights Reserved.</small>
-                        <small class="block">Designed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a> </small>
-                    </p>
-                    <ul class="fh5co-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="https://www.behance.net/delcode920dc4"><i class="icon-behance"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- end footer -->
+<!-- begin footer -->
+@include('layout.footer');
+<!-- end footer -->
 
 </div>
 

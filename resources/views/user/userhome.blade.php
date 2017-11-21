@@ -32,6 +32,15 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
+    <script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.validate.js"></script>
+
+
+
+
 </head>
 <body >
 
@@ -44,7 +53,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <div class="col-xs-2">
+
+                    @include('layout.menu')
+                    
+                    {{--<script>
+                        $(document).ready(function () {
+                            if(window.location.pathname == "/userhome") {
+                                document.getElementById('userhome').class="active";
+
+                            }
+                        });
+                    </script>--}}
+
+                    {{--<script>
+                        if(window.location.href=="http://127.0.0.1:8000/userhome")
+                        {
+                            document.getElementById('userhome').class="active";
+                        }
+                    </script>--}}
+
+                    {{--<p id="demo"></p>
+
+                    <script>
+                        document.getElementById("demo").innerHTML =
+                            "The full URL of this page is:<br>" + window.location.href;
+                    </script>--}}
+
+
+                    {{--<div class="col-xs-2">
 
                     </div>
 
@@ -65,7 +101,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
 
                     <div class="col-xs-2" style="color: white">
                         <div class="col-xs-9">
