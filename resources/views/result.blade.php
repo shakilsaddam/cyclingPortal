@@ -31,7 +31,6 @@
     <!--[if lt IE 9]>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-
 </head>
 <body >
 <div class="fh5co-loader"></div>
@@ -136,7 +135,7 @@
                                 @if($bike->present_status=='Everything Ok')
                                     <b style="color: darkgreen">Everything OK!!
 
-                                @elseif($bike->present_status=='Stollen')
+                                @elseif($bike->present_status=='stollen')
                                     <b style="color: darkred">Stollen!!
                                 @elseif($bike->present_status=='Damaged')
                                     <b style="color: #b6a338">Damaged!!
@@ -156,26 +155,7 @@
 <!-- End of Search Result Showing -->
 
 
-<!-- begin footer -->
-<footer id="fh5co-footer">
-    <div class="container">
-        <div class="row copyright">
-            <div class="col-md-12 text-center">
-                <p>
-                    <small class="block">&copy; Md. Saddam Hossain shakil. All Rights Reserved.</small>
-                    <small class="block">Designed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a> </small>
-                </p>
-                <ul class="fh5co-social-icons">
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                    <li><a href="https://www.behance.net/delcode920dc4"><i class="icon-behance"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- end footer -->
+@include('layout.footer')
 
 
 

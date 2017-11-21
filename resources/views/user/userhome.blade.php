@@ -294,17 +294,31 @@
                     <div class="col-sm-12" style="margin-top: 20px;">
                         <div class="col-sm-6">
                             <lavel>Change Bike Status</lavel>
-                            <select name="bike_status">
-                                <option value="ok">Everything OK</option>
-                                <option value="stollen">Stollen</option>
-                                <option value="Damaged">Damaged</option>
-                            </select>
-                            <button type="submit" class="btn-primary" onclick="location.href = 'update/bikestatus/{{$bike->id}}'">Update</button>
+                            <form action="updatebike" method="POST">
+                                <select name="bike_status">
+                                    <option value="Everything Ok">Everything OK</option>
+                                    <option value="stollen">Stollen</option>
+                                    <option value="Damaged">Damaged</option>
+                                </select>
+                                <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                                <button type="submit" class="btn-primary">Update</button>
+                                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+
+
+                            {{--<button type="submit" class="btn-primary" onclick="location.href = 'update/bikestatus/{{$bike->id}}'">Update</button>--}}
                             {{--<input type="button" class="btn-primary" value="Update" name="update_bike_status"/>--}}
+                            </form>
                         </div>
+
                         <div class="col-sm-6">
-                            <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
-                            <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                            <form method="POST" action="viewdetails">
+                                <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                                <button type="submit" class="btn-primary">View Details</button>
+                                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                                {{--<input type="button" class="btn-primary" value="View Details" name="view_details"/>--}}
+                                {{--<div class="col-xs-1"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>--}}<br>
+                                <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -372,6 +386,54 @@
             </div>--}}
 
         @endif
+
+
+        {{--<!-- View Details-->
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Bike Details for Chasses no : <b>{{$bike->chasses_no}}</b></h1><br>
+
+                        <table>
+                            @foreach ($bikes as $bike)
+                                <tr>
+                                    <td colspan="2"><h3><b>{{$bike->brand}} {{$bike->bike_model}}</b></h3></td>
+                                </tr>
+
+                                <tr>
+                                    <td><h3>Bike Photo:</h3></td>
+                                    <td><img height="60px" width="60px" src="uploads\{{$bike->bike_photo}}"></td>
+                                </tr>
+                                --}}{{--
+                                <tr>
+                                    <td><h3>Owner:</h3></td>
+                                    <td><h3><b>{{$bike->fname}}</b></h3></td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Owner Photo:</h3></td>
+                                    <td><img height="60px" width="60px" src="uploads\{{$bike->profile_photo}}"></td>
+                                </tr>
+                                <tr>
+                                    <td><h3>Present Status:</h3></td>
+                                    <td><h3>
+                                            @if($bike->present_status=='Everything Ok')
+                                                <b style="color: darkgreen">Everything OK!!
+
+                                                    @elseif($bike->present_status=='Stollen')
+                                                        <b style="color: darkred">Stollen!!
+                                                            @elseif($bike->present_status=='Damaged')
+                                                                <b style="color: #b6a338">Damaged!!
+                                                                    @endif
+                                                                </b>
+                                        </h3></td>
+                                </tr>--}}{{--
+                            @endforeach
+                        </table>
+
+
+                </div>
+            </div>
+        </div>--}}
 
 
 

@@ -35,3 +35,10 @@ Route::get('/search/{chasses_no}', 'FetchUserInfoController@APIsearchResult');
 Route::POST('/search', 'FetchUserInfoController@searchResult');
 
 Route::get('update/bikestatus/{id}', 'UpdateUsersData@updateBikeStatus');
+
+Route::POST('updatebike','UpdateUsersData@updateBikeStatus');
+Route::get('updatebike',function (){
+    return redirect('userhome');
+});
+
+Route::POST('viewdetails','UpdateUsersData@viewDetails');

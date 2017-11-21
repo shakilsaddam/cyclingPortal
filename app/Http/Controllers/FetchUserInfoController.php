@@ -50,7 +50,7 @@ class FetchUserInfoController extends Controller
 
             //$bikes = DB::table('bike_info')->where('id','=','1')->get();
             $bikes = DB::select(DB::raw
-            ('select bike_infos.id,bike_infos.brand,bike_infos.bike_model,bike_infos.chasses_no,bike_infos.present_status
+            ('select bike_infos.id,bike_infos.brand,bike_infos.bike_model,bike_infos.chasses_no,bike_infos.bike_photo,bike_infos.present_status
         FROM bike_infos
         JOIN bike_histories
         ON bike_infos.id=bike_histories.bike_id
@@ -63,6 +63,8 @@ class FetchUserInfoController extends Controller
             $personal_info = User_detail::where('id', '=', $user_id)->get();
 
             //return $personal_info;
+
+            //return $bikes;
             return view('user.userhome', compact('bikes', 'personal_info'));
             //return view('user.userhome')->with('bikes',$bikes,'personal_info',$personal_info);
         }

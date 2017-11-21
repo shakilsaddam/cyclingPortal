@@ -63,7 +63,6 @@
                         <li><a href="disc.html">Forum</a></li>
                         <li><a href="about.html">Buy or Sell</a></li>
                         <li><a href="blog.html">About</a></li>
-                        <!--   <li><a href="contact.html">Contact</a></li>  -->
                     </ul>
                 </div>
             </div>
