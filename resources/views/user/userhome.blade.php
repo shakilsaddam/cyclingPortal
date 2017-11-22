@@ -55,7 +55,7 @@
                 <div class="col-xs-12 text-center">
 
                     @include('layout.menu')
-                    
+
                     {{--<script>
                         $(document).ready(function () {
                             if(window.location.pathname == "/userhome") {
@@ -222,22 +222,34 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-12" style="margin-top: 20px;">
-                        <div class="col-sm-6">
-                            <lavel>Change Bike Status</lavel>
+                    <div class="col-sm-6">
+                        <lavel>Change Bike Status</lavel>
+                        <form action="updatebike" method="POST">
                             <select name="bike_status">
-                                <option value="ok">Everything OK</option>
+                                <option value="Everything Ok">Everything OK</option>
                                 <option value="stollen">Stollen</option>
                                 <option value="Damaged">Damaged</option>
                             </select>
+                            <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                            <button type="submit" class="btn-primary">Update</button>
+                            <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
 
+
+                            {{--<button type="submit" class="btn-primary" onclick="location.href = 'update/bikestatus/{{$bike->id}}'">Update</button>--}}
                             {{--<input type="button" class="btn-primary" value="Update" name="update_bike_status"/>--}}
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="button" class="btn-primary" value="View Details" name="view_details"/> <br>
-                            <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
-                        </div>
+                        </form>
                     </div>
+                    <div class="col-sm-6">
+                        <form method="POST" action="viewdetails">
+                            <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                            <button type="submit" class="btn-primary">View Details</button>
+                            <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                            {{--<input type="button" class="btn-primary" value="View Details" name="view_details"/>--}}
+                            {{--<div class="col-xs-1"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>--}}<br>
+                            <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
+                        </form>
+                    </div>
+                    
                 </div>
                 <div class="col-lg-3"> </div>
             </div>
