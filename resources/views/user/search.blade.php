@@ -179,7 +179,7 @@
                             <div class="inner-addon right-addon col-sm-10">
                                 <h2><label style="color: #0b0b0b">Search Bike</label></h2>
                                 <i class="glyphicon glyphicon-search"></i>
-                                <input type="text" name="search" class="form-control" placeholder="Search" style="background-color: white "/>
+                                <input type="text" name="search" class="form-control" placeholder="Search with Chasses no" style="background-color: white "/>
                             </div>
                             <div class="col-sm-1"></div>
 

@@ -249,7 +249,7 @@
                             <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
                         </form>
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-3"> </div>
             </div>
