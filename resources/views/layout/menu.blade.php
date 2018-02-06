@@ -4,7 +4,7 @@
 
 <div id="fh5co-logo" class="col-xs-8">
     <div class="col-sm-12">
-        <a href="index.html">Cycling Portal Bangladesh<span>.</span></a>
+        <a href="/">Cycling Portal Bangladesh<span>.</span></a>
         <br><br>
     </div>
     <div class="col-sm-12">
