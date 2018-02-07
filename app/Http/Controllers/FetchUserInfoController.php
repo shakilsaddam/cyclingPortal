@@ -51,12 +51,12 @@ class FetchUserInfoController extends Controller
             //$bikes = DB::table('bike_info')->where('id','=','1')->get();
             $bikes = DB::select(DB::raw
             ('select bike_infos.id,bike_infos.brand,bike_infos.bike_model,bike_infos.chasses_no,bike_infos.bike_photo,bike_infos.present_status
-        FROM bike_infos
-        JOIN bike_histories
-        ON bike_infos.id=bike_histories.bike_id
-        JOIN user_details
-        ON bike_histories.user_id=user_details.id
-        WHERE user_details.id= :user_id'), array(
+            FROM bike_infos
+            JOIN bike_histories
+            ON bike_infos.id=bike_histories.bike_id
+            JOIN user_details
+            ON bike_histories.user_id=user_details.id
+            WHERE user_details.id= :user_id'), array(
                     'user_id' => $user_id,)
             );
 

@@ -43,5 +43,4 @@ Route::get('updatebike',function (){
 
 Route::POST('viewdetails','UpdateUsersData@viewDetails');
 
-//Buy or Sale
 Route::get('buyorsale/home','BuyOrSaleController@index');

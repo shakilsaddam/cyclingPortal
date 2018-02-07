@@ -71,6 +71,7 @@
                 @if(Session::has('user_id'))
 
                 @include('layout.menu')
+
                 <div class="col-xs-2" style="color: white">
                     <div class="col-xs-9">
                         Logged as
