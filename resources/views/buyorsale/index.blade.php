@@ -102,7 +102,7 @@
 
 </div>
 
-    <div>
+
 
         @if(Session::has('login_failed_message'))
             <div class="alert alert-danger alert-dismissable fade in">
@@ -113,9 +113,58 @@
 
     <!-- begin of Login -->
         {{--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">--}}
-        <div class="modal-dialog">
-            <div class="loginmodal-container">
-                <h1>Login to Your Account</h1><br>
+        <div class="container" style="margin-bottom: 10px">
+            <div class="loginmodal-container col-sm-6" style="float: left; margin-top: 10px">
+                <div class="col-sm-8">
+                    <img height="200px" width="200px"  src="\uploads\shakil.jpg"/>
+                </div>
+                <div class="col-sm-4">
+                    <div class="col-sm-12">
+                        <img height="100px" width="100px" src="\uploads\shakil.jpg"/>
+                    </div>
+                    <div class="col-sm-12">
+                        <img height="100px" width="100px" src="\uploads\shakil.jpg"/>
+                    </div>
+                </div>
+
+                <div class="container col-sm-12 text-center" style="border: 1px solid black; margin-top: 10px;">
+
+                    <h4 style="margin-top: 10px">Veloce Legion 10</h4>
+                    <h5>Posted on: 19Jan 2018</h5>
+                    <h4>Total Used: 1 year 7 month</h4>
+                    <h4>Price: 15000/- (Nagotiatable)</h4>
+                    <button type="submit" class="btn-primary">Details</button>
+
+                </div>
+            </div>
+
+            <div class="loginmodal-container col-sm-6" style="float: right; margin-top: 10px">
+                <div class="col-sm-8">
+                    <img height="200px" width="200px"  src="\uploads\shakil.jpg"/>
+                </div>
+                <div class="col-sm-4">
+                    <div class="col-sm-12">
+                        <img height="100px" width="100px" src="\uploads\shakil.jpg"/>
+                    </div>
+                    <div class="col-sm-12">
+                        <img height="100px" width="100px" src="\uploads\shakil.jpg"/>
+                    </div>
+                </div>
+
+                <div class="container col-sm-12 text-center" style="border: 1px solid black; margin-top: 10px;">
+
+                    <h4 style="margin-top: 10px">Veloce Legion 10</h4>
+                    <h5>Posted on: 19Jan 2018</h5>
+                    <h4>Total Used: 1 year 7 month</h4>
+                    <h4>Price: 15000/- (Nagotiatable)</h4>
+                    <button type="submit" class="btn-primary">Details</button>
+
+                </div>
+            </div>
+
+        </div>
+
+                {{--<h1>Login to Your Account</h1><br>
                 <form method="POST" action="/">
                     <input type="text" name="email_address" placeholder="Email Address" required>
                     <input type="password" name="password" placeholder="Password" required>
@@ -127,9 +176,11 @@
                     <a href="/registration">Register Now!</a>
                     <br>
                     <a href="#">Lost Your Password?</a>
-                </div>
-            </div>
-        </div>
+                </div>--}}
+
+
+
+
     {{--</div>--}}
     <!-- End of Login -->
 
