@@ -2,9 +2,9 @@
 <html lang="zxx">
 
 <head>
-    <title>User Login</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Buy or Sale your used bicycles</title>
     <link rel="icon" href="../del-code.com/images/icon/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="del-code.com" />
@@ -31,6 +31,7 @@
     <!--[if lt IE 9]>
     <script src="/js/respond.min.js"></script>
     <![endif]-->
+
 
 
 </head>
@@ -68,58 +69,109 @@
             </div>
         </div>
     </nav>
-
-    <div class="container">
-     <h1>
-         Hi how are you, what is your name.. how to manage them...
-
-     </h1>
-
-
-    </div>
     <!-- end navbar -->
 
-    <!-- begin footer -->
-    <footer id="fh5co-footer">
-        <div class="container">
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <small class="block">&copy; Md. Saddam Hossain shakil. All Rights Reserved.</small>
-                        <small class="block">Designed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a> </small>
-                    </p>
-                    <ul class="fh5co-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="https://www.behance.net/delcode920dc4"><i class="icon-behance"></i></a></li>
-                    </ul>
+
+
+    <!-- <a href="#" data-toggle="modal" data-target="#login-modal">Login</a> -->
+
+<div class="container" style="border-bottom: 2px solid slategrey; margin-top: 5px" >
+    <div>
+        <div class="col-sm-8">
+
+        </div>
+        <div class="col-sm-4">
+            <div class="col-sm-8">
+                <h4 style="float: right">Want to sell yours?</h4>
+            </div>
+            <div class="col-sm-4">
+                <b style="float: left">
+                    <a href="/userlogin">Login</a>
+                </b>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="col-sm-9">
+            <h3>Used bicycles for sale: </h3>
+        </div>
+        <div class="col-sm-3">
+            <h5 style="float:right ">Sort by: Date of Posting</h5>
+        </div>
+    </div>
+
+</div>
+
+    <div>
+
+        @if(Session::has('login_failed_message'))
+            <div class="alert alert-danger alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Not Logged in !</strong> Please Login First.
+            </div>
+        @endif
+
+    <!-- begin of Login -->
+        {{--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">--}}
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Login to Your Account</h1><br>
+                <form method="POST" action="/">
+                    <input type="text" name="email_address" placeholder="Email Address" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                    <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                </form>
+
+                <div>
+                    <a href="/registration">Register Now!</a>
+                    <br>
+                    <a href="#">Lost Your Password?</a>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- end footer -->
+    {{--</div>--}}
+    <!-- End of Login -->
 
-    </div>
 
-    <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-    </div>
 
-    <!-- jQuery -->
-    <script src="/js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="/js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="/js/jquery.waypoints.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="/js/jquery.magnific-popup.min.js"></script>
-    <script src="/js/magnific-popup-options.js"></script>
-    <!-- Main -->
-    <script src="/js/main.js"></script>
+        <!-- begin footer -->
+        <footer id="fh5co-footer">
+            <div class="container">
+                <div class="row copyright">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <small class="block">&copy; Md. Saddam Hossain shakil. All Rights Reserved.</small>
+                            <small class="block">Designed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a> </small>
+                        </p>
+                        <ul class="fh5co-social-icons">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="https://www.behance.net/delcode920dc4"><i class="icon-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
+
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<!-- Magnific Popup -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<script src="/js/magnific-popup-options.js"></script>
+<!-- Main -->
+<script src="/js/main.js"></script>
 
 
 </body>
 </html>
+
