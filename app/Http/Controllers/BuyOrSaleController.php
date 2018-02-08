@@ -10,4 +10,9 @@ class BuyOrSaleController extends Controller
     {
         return view('buyorsale.index');
     }
+
+    public function detail()
+    {
+        return view('buyorsale.showdetails');
+    }
 }
