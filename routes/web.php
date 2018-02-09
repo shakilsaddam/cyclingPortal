@@ -43,5 +43,11 @@ Route::get('updatebike',function (){
 
 Route::POST('viewdetails','UpdateUsersData@viewDetails');
 
+//Buy or Sale Routes
 Route::get('buyorsale/home','BuyOrSaleController@index');
 Route::get('buyorsale/viewdetail','BuyOrSaleController@detail');
+
+Route::get('/modeldata', function (){
+   $tests = \App\Up_for_sale::all();
+   return view('buyorsale.tests', compact('tests'));
+});

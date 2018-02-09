@@ -99,12 +99,12 @@
 
 <!-- Slider of Cycles -->
 <div class="container" style="margin-bottom: 20px">
-    <div class="loginmodal-container col-sm-4" style="float: left; margin-top: 10px;">
+    <div class="loginmodal-container col-sm-4" style="float: left; margin-top: 10px; height: 500px;">
         <h2 class="w3-center">Manual Slideshow</h2>
 
         <div class="w3-content w3-display-container">
-            <img class="mySlides" src="/uploads/shakil.jpg" style="width:100%">
-            <img class="mySlides" src="/uploads/veloce.jpg" style="width:100%">
+            <img class="mySlides" src="/uploads/shakil.jpg" style="width:100%;">
+            <img class="mySlides" src="/uploads/veloce.jpg" style="width:100%;">
             <img class="mySlides" src="/uploads/vc1.jpg" style="width:100%">
 
 
