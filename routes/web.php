@@ -51,3 +51,8 @@ Route::get('/modeldata', function (){
    $tests = \App\Up_for_sale::all();
    return view('buyorsale.tests', compact('tests'));
 });
+
+Route::get('/people', function (){
+    $user_detail = \App\User_detail::find(1)->bike_info;
+    return $user_detail;
+});
