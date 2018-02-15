@@ -92,31 +92,49 @@
 
 </div>
 
+    {{--@foreach($bike_info as $bike_info)
+
+        <td>{{$bike_info->bike_photo}}</td>
+
+
+    @endforeach--}}
+
 <!-- Viewing cycles for sale -->
 <div class="container" style="margin-bottom: 10px">
+
+    @foreach($bike_info as $bike_info)
+
     <div class="loginmodal-container col-sm-6" style="float: left; margin-top: 10px">
         <div class="col-sm-8">
-            <img height="200px" width="200px"  src="\uploads\shakil.jpg"/>
+            <img height="200px" width="200px"  src="\uploads\{{$bike_info->bike_photo}}"/>
         </div>
         <div class="col-sm-4">
             <div class="col-sm-12">
-                <img height="100px" width="100px" src="\uploads\shakil.jpg"/>
+                <img height="100px" width="100px" src=""/>
             </div>
             <div class="col-sm-12">
-                <img height="100px" width="100px" src="\uploads\shakil.jpg"/>
+                <img height="100px" width="100px" src=""/>
             </div>
         </div>
 
         <div class="container col-sm-12 text-center" style="border: 1px solid black; margin-top: 10px;">
 
-            <h4 style="margin-top: 10px">Veloce Legion 10</h4>
-            <h5>Posted on: 19Jan 2018</h5>
-            <h4>Total Used: 1 year 7 month</h4>
-            <h4>Price: 15000/- (Nagotiatable)</h4>
+            <h4 style="margin-top: 10px">{{$bike_info->brand}} {{$bike_info->bike_model}}</h4>
+            <h5>Posted on: {{$bike_info->posted_on}}</h5>
+            <h4>Total Used: {{$bike_info->total_used}} year</h4>
+            <h4>Price: {{$bike_info->price}}
+                @if($bike_info->is_nagotiatable==0)
+                (Nagotiatable)
+                @else
+                (Fixed Price)
+                @endif
+            </h4>
             <button type="submit" class="btn-primary">Details</button>
 
         </div>
     </div>
+
+    @endforeach
 
     <div class="loginmodal-container col-sm-6" style="float: right; margin-top: 10px">
         <div class="col-sm-8">

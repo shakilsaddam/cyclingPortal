@@ -47,6 +47,8 @@ Route::POST('viewdetails','UpdateUsersData@viewDetails');
 Route::get('buyorsale/home','BuyOrSaleController@index');
 Route::get('buyorsale/viewdetail','BuyOrSaleController@detail');
 
+
+
 Route::get('/modeldata', function (){
    $tests = \App\Up_for_sale::all();
    return view('buyorsale.tests', compact('tests'));
