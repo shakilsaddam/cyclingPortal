@@ -45,7 +45,7 @@ Route::POST('viewdetails','UpdateUsersData@viewDetails');
 
 //Buy or Sale Routes
 Route::get('buyorsale/home','BuyOrSaleController@index');
-Route::get('buyorsale/viewdetail','BuyOrSaleController@detail');
+Route::get('buyorsale/viewdetail/{upforsale_id}','BuyOrSaleController@detail');
 
 
 
@@ -55,6 +55,7 @@ Route::get('/modeldata', function (){
 });
 
 Route::get('/people', function (){
-    $user_detail = \App\User_detail::find(1)->bike_info;
-    return $user_detail;
+    return view('buyorsale.showdetails');
+    //$user_detail = \App\User_detail::find(1)->bike_info;
+    //return $user_detail;
 });

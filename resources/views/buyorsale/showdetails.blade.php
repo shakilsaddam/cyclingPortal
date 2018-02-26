@@ -87,12 +87,16 @@
 
     </div>
     <div>
+        @foreach($detail_info as $detail_info)
+
         <div class="col-sm-9">
-            <h3>Detail Information of <b>Veloce Legion 10</b> </h3>
+            <h3>Detail Information of <b>{{$detail_info->bike_model}}</b> </h3>
         </div>
         <div class="col-sm-3">
             <h5 style="float:right ">Sort by: Date of Posting</h5>
         </div>
+
+
     </div>
 
 </div>
@@ -100,10 +104,10 @@
 <!-- Slider of Cycles -->
 <div class="container" style="margin-bottom: 20px">
     <div class="loginmodal-container col-sm-4" style="float: left; margin-top: 10px; height: 500px;">
-        <h2 class="w3-center">Manual Slideshow</h2>
+        <h3 class="w3-center">Bike Photos</h3>
 
         <div class="w3-content w3-display-container">
-            <img class="mySlides" src="/uploads/shakil.jpg" style="width:100%;">
+            <img class="mySlides" src="/uploads/{{$detail_info->bike_photo}}" style="width:100%;">
             <img class="mySlides" src="/uploads/veloce.jpg" style="width:100%;">
             <img class="mySlides" src="/uploads/vc1.jpg" style="width:100%">
 
@@ -133,34 +137,47 @@
         </script>
     </div>
 
+
+
     <div class="col-sm-6" style="float: left; margin-top: 10px; margin-left: 30px;">
 
         <div style="width: 100%">
             <label style="color: black"><b>Bike Description</b></label>
             <p>
-                Definition of cycle. 1 : an interval of time during which a sequence of a recurring succession of events or phenomena is completed. a 4-year cycle of growth and development.
+                {{$detail_info->description}}
             </p>
         </div>
 
         <div style="margin-top: 40px;">
             <label style="color: black"><b>Component Changes Description</b></label>
             <p>
-                Definition of cycle. 1 : an interval of time during which a sequence of a recurring succession of events or phenomena is completed. a 4-year cycle of growth and development.
+                {{$detail_info->component_change_detail}}
             </p>
         </div>
 
         <div style="margin-top: 40px;">
             <label style="color: black"><b>Other Information / Comment by Seller</b></label>
             <p>
-                Please Collect the bike in between Mirpur, Dhanmondi, Mohammadpur.
+                {{$detail_info->comment}}
             </p>
         </div>
 
         <div style="margin-top: 40px;">
             <label style="color: black"><h4><b>Seller Information</b></h4></label> <br>
-            <label>Name:</label> Md. Saddam Hossain Shakil <br>
-            <label>Mobile No:</label> 01829622212
+            <label>Name:</label> {{$detail_info->fname}} {{$detail_info->lname}} <br>
+            <label>Mobile No:</label> {{$detail_info->mobile_no}}
         </div>
+
+        <div style="margin-top: 40px;">
+            <label style="color: black"><h4><b>Selling Information</b></h4></label> <br>
+            <label>Posted On: </label> {{$detail_info->posted_on}} <br>
+            <label>Total Used: </label> {{$detail_info->total_used}} Year <br>
+            <label>Price: </label> {{$detail_info->price}} @if($detail_info->is_nagotiatable==1) (Nagotiatable) @else (Fixed) @endif <br>
+            <label>Bike Status: </label> @if($detail_info->is_sold==0) Available @else Sold @endif
+
+        </div>
+
+        @endforeach
     </div>
 </div>
 

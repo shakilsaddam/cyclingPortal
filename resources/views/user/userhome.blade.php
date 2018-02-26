@@ -184,26 +184,28 @@
 
                 <div class="col-lg-6 well">
                     <div class="col-sm-12">
-
-                        <div class="col-sm-6">
+                        @foreach ($bikes as $bike)
+                        <div class="col-sm-8">
                             <table>
                                 <tr>
-                                    <td>Brand:</td>
+                                    <td>Brand: <b>{{$bike->brand}}</b></td>
                                 </tr>
                                 <tr>
-                                    <td>Model:</td>
+                                    <td>Model: <b>{{$bike->bike_model}}</b></td>
                                 </tr>
                                 <tr>
-                                    <td>Chasses No:</td>
+                                    <td>Chasses No: <b>{{$bike->chasses_no}}</b></td>
                                 </tr>
                                 <tr>
-                                    <td>Bike Status:</td>
+                                    <td>Bike Status: <b>{{$bike->present_status}}</b></td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-sm-6">
+                        @endforeach
+
+                        {{--<div class="col-sm-4">
                             <table>
-                                @foreach ($bikes as $bike)
+
                                     <tr>
                                         <td><b>{{$bike->brand}}</b></td>
                                     </tr>
@@ -219,6 +221,10 @@
                                 @endforeach
                             </table>
 
+                        </div>--}}
+
+                        <div class="col-sm-4" style="float: bottom">
+                            <button type="submit" class="btn-primary" onclick="location.href = '/addbike'">Add Bike</button>
                         </div>
 
                     </div>
