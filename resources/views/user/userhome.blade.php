@@ -438,6 +438,55 @@
 </header>
 <!-- end header -->
 
+    <!--Start of Up For Sale input-->
+    <div class="modal-dialog">
+
+        <div class="loginmodal-container">
+            <h3>Enter other required information<b></b></h3><br>
+
+
+            <table>
+                <tr>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr>
+                    <td><h4 style="color: red">Total Used: </h4></td>
+                    <td><input type="text" name="total_used" placeholder="Ex. 1 year" required></td>
+                </tr>
+                <tr>
+                    <td><h4 style="color: red">Price: </h4></td>
+                    <td><input type="text" name="price" placeholder="Ex. 15000" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="radio" name="nagotiatable" value="1"> Nagotiatable<br>
+                        <input type="radio" name="nagotiatable" value="0"> Fixed<br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><h4 style="color: red;">Comment:</h4></td>
+                    <td><input type="text" name="comment" placeholder="place your comment here"></td>
+
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" class="btn-primary" name="submit_other_info" style="float: right" value="SUBMIT"/>
+                    </td>
+                </tr>
+            </table>
+
+
+
+        </div>
+    </div>
+
+    <!--End of Up For Sale input -->
+
         <!-- begin footer -->
         <footer id="fh5co-footer">
             <div class="container">
