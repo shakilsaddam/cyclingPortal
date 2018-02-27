@@ -129,7 +129,7 @@
 
 
                         <div class="col-sm-5" style="float: bottom">
-                            <button type="submit" class="btn-primary" style="width: 100%" onclick="location.href = '#'">Up For Sale</button>
+                            <button type="submit" class="btn-primary" style="width: 100%" data-toggle="modal" data-target="#other_info">Up For Sale</button>
                         </div>
 
                     </div>
@@ -412,9 +412,9 @@
                             <tr>
                                 <td><b>{{$pi->mobile_no}}</b></td>
                             </tr>
-                                <tr>
-                                    <td><b>{{$pi->facebook_id}}</b></td>
-                                </tr>
+                            <tr>
+                                <td><b>{{$pi->facebook_id}}</b></td>
+                            </tr>
                             <tr>
                                 <td><b>{{$pi->present_address}}</b></td>
                             </tr>
@@ -439,10 +439,11 @@
 <!-- end header -->
 
     <!--Start of Up For Sale input-->
-    <div class="modal-dialog">
+    {{--<div class="modal-dialog">--}}
+        <div class="modal fade" id="other_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 
         <div class="loginmodal-container">
-            <h3>Enter other required information<b></b></h3><br>
+            <h3><b>Enter other required information</b></h3><br>
 
 
             <table>
@@ -451,11 +452,11 @@
                 </tr>
 
                 <tr>
-                    <td><h4 style="color: red">Total Used: </h4></td>
+                    <td><h4 style="color: red">Total Used: (year) </h4></td>
                     <td><input type="text" name="total_used" placeholder="Ex. 1 year" required></td>
                 </tr>
                 <tr>
-                    <td><h4 style="color: red">Price: </h4></td>
+                    <td><h4 style="color: red">Price: (taka)</h4></td>
                     <td><input type="text" name="price" placeholder="Ex. 15000" required></td>
                 </tr>
                 <tr>

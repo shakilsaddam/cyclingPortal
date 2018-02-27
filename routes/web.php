@@ -46,7 +46,7 @@ Route::POST('viewdetails','UpdateUsersData@viewDetails');
 //Buy or Sale Routes
 Route::get('buyorsale/home','BuyOrSaleController@index');
 Route::get('buyorsale/viewdetail/{upforsale_id}','BuyOrSaleController@detail');
-
+Route::POST('buyorsale/upforsale','BuyOrSaleController@upforsale');
 
 
 Route::get('/modeldata', function (){

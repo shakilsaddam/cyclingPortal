@@ -37,4 +37,9 @@ class BuyOrSaleController extends Controller
         //return $detail_info;
         return view('buyorsale.showdetails',compact('detail_info'));
     }
+
+    public function upforsale()
+    {
+        return redirect('/userhome');
+    }
 }
