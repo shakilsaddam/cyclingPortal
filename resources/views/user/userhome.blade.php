@@ -56,53 +56,6 @@
 
                     @include('layout.menu')
 
-                    {{--<script>
-                        $(document).ready(function () {
-                            if(window.location.pathname == "/userhome") {
-                                document.getElementById('userhome').class="active";
-
-                            }
-                        });
-                    </script>--}}
-
-                    {{--<script>
-                        if(window.location.href=="http://127.0.0.1:8000/userhome")
-                        {
-                            document.getElementById('userhome').class="active";
-                        }
-                    </script>--}}
-
-                    {{--<p id="demo"></p>
-
-                    <script>
-                        document.getElementById("demo").innerHTML =
-                            "The full URL of this page is:<br>" + window.location.href;
-                    </script>--}}
-
-
-                    {{--<div class="col-xs-2">
-
-                    </div>
-
-                    <div id="fh5co-logo" class="col-xs-8">
-                        <div class="col-sm-12">
-                            <a href="index.html">Cycling Portal Bangladesh<span>.</span></a>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="col-xs-12 text-center menu-1">
-                                <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="disc.html">Travelling Blog</a></li>
-
-                                    <li><a href="disc.html">Forum</a></li>
-                                    <li><a href="about.html">Buy or Sell</a></li>
-                                    <li><a href="blog.html">About</a></li>
-                                    <!--   <li><a href="contact.html">Contact</a></li>  -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>--}}
-
                     <div class="col-xs-2" style="color: white">
                         <div class="col-xs-9">
                             Logged as
@@ -127,35 +80,6 @@
         </div>
     </nav>
     <!-- end navbar -->
-
-
-    <!-- begin of Login -->
-    <!-- <a href="#" data-toggle="modal" data-target="#login-modal">Login</a> -->
-{{--
-    <div>
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog">
-                <div class="loginmodal-container">
-                    <h1>Login to Your Account</h1><br>
-                    <form method="POST">
-                        <input type="text" name="email_address" placeholder="Email Address">
-                        <input type="password" name="password" placeholder="Password">
-                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                        <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                    </form>
-
-                    <div>
-                        <a href="/registration">Register Now!</a>
-                        <br>
-                        <a href="#">Lost Your Password?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
---}}
-
-        <!-- End of Login -->
-
 
 
 <!-- begin header -->
@@ -183,9 +107,9 @@
                 <div class="col-lg-3"> </div>
 
                 <div class="col-lg-6 well">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="border: #9d9d9d 1px solid; padding: 5px;">
                         @foreach ($bikes as $bike)
-                        <div class="col-sm-8">
+                        <div class="col-sm-7">
                             <table>
                                 <tr>
                                     <td>Brand: <b>{{$bike->brand}}</b></td>
@@ -203,57 +127,40 @@
                         </div>
                         @endforeach
 
-                        {{--<div class="col-sm-4">
-                            <table>
 
-                                    <tr>
-                                        <td><b>{{$bike->brand}}</b></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{$bike->bike_model}}</b></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{$bike->chasses_no}}</b></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{$bike->present_status}}</b></td>
-                                    </tr>
-                                @endforeach
-                            </table>
-
-                        </div>--}}
-
-                        <div class="col-sm-4" style="float: bottom">
-                            <button type="submit" class="btn-primary" onclick="location.href = '/addbike'">Add Bike</button>
+                        <div class="col-sm-5" style="float: bottom">
+                            <button type="submit" class="btn-primary" style="width: 100%" onclick="location.href = '#'">Up For Sale</button>
                         </div>
 
                     </div>
-                    <div class="col-sm-6">
-                        <lavel>Change Bike Status</lavel>
-                        <form action="updatebike" method="POST">
-                            <select name="bike_status">
-                                <option value="Everything Ok">Everything OK</option>
-                                <option value="stollen">Stollen</option>
-                                <option value="Damaged">Damaged</option>
-                            </select>
-                            <input type="hidden" name="bike_id" value="{{$bike->id}}">
-                            <button type="submit" class="btn-primary">Update</button>
-                            <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                    <div class="col-sm-12" style="margin-top: 10px; border: #9d9d9d 1px solid; padding: 5px;">
+                        <div class="col-sm-7">
+                            <lavel>Change Bike Status</lavel>
+                            <form action="updatebike" method="POST">
+                                <select name="bike_status">
+                                    <option value="Everything Ok">Everything OK</option>
+                                    <option value="stollen">Stollen</option>
+                                    <option value="Damaged">Damaged</option>
+                                </select>
+                                <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                                <button type="submit" class="btn-primary">Update</button>
+                                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
 
 
-                            {{--<button type="submit" class="btn-primary" onclick="location.href = 'update/bikestatus/{{$bike->id}}'">Update</button>--}}
-                            {{--<input type="button" class="btn-primary" value="Update" name="update_bike_status"/>--}}
-                        </form>
-                    </div>
-                    <div class="col-sm-6">
-                        <form method="POST" action="viewdetails">
-                            <input type="hidden" name="bike_id" value="{{$bike->id}}">
-                            <button type="submit" class="btn-primary">View Details</button>
-                            <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                            {{--<input type="button" class="btn-primary" value="View Details" name="view_details"/>--}}
-                            {{--<div class="col-xs-1"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>--}}<br>
-                            <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership"/>
-                        </form>
+                                {{--<button type="submit" class="btn-primary" onclick="location.href = 'update/bikestatus/{{$bike->id}}'">Update</button>--}}
+                                {{--<input type="button" class="btn-primary" value="Update" name="update_bike_status"/>--}}
+                            </form>
+                        </div>
+                        <div class="col-sm-5">
+                            <form method="POST" action="viewdetails">
+                                <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                                <button type="submit" class="btn-primary" style="width: 100%; margin-bottom: 5px">View Details</button>
+                                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                                {{--<input type="button" class="btn-primary" value="View Details" name="view_details"/>--}}
+                                {{--<div class="col-xs-1"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></div>--}}<br>
+                                <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership" style="width: 100%;"/>
+                            </form>
+                        </div>
                     </div>
 
                 </div>
