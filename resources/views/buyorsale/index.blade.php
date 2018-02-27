@@ -138,7 +138,7 @@
                                         Sold
                                     @endif
                                 </h4>
-                                <button type="submit" class="btn-primary">Details</button>
+                                <button type="submit" class="btn-primary" onclick="location.href = '/buyorsale/viewdetail/{{$bike_info->upforsale_id}}'">Details</button>
 
                             </div>
                         </div>

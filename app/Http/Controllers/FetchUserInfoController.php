@@ -129,7 +129,8 @@ class FetchUserInfoController extends Controller
             echo '</script>';
 
             //return $bike_info_data;
-            return view('user.addbike');
+            return redirect('/userhome');
+            //return view('user.addbike');
         }
 
     }
