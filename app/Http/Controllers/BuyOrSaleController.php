@@ -61,7 +61,11 @@ class BuyOrSaleController extends Controller
             'sold_date' => date('Y-m-d')
         ]);
 
-        return $bike_id;
-        return redirect('/userhome');
+        echo '<script language="javascript">';
+        echo 'alert("Bike has been listed in Up For Sale !!!")';
+        echo '</script>';
+
+        //return $bike_id;
+        return redirect('userhome');
     }
 }
