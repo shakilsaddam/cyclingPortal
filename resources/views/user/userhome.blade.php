@@ -89,6 +89,7 @@
             <label><h2>Your owned bikes</h2></label>
         </div>
 
+
         @if(count($bikes)==0)
             <div class="col-lg-12 well">
                 <div class="col-sm-2">
@@ -127,7 +128,12 @@
                         </div>
 
                         <div class="col-sm-5" style="float: bottom">
-                            <button type="submit" class="btn-primary" style="width: 100%" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Up For Sale</button>
+
+                            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5%;" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Up For Sale</button>
+                            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5%;" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Cancel Up For Sale</button>
+                            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5%;" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Mark as Sold</button>
+
+                            {{--@endforeach--}}
                         </div>
                     </div>
 
@@ -159,7 +165,6 @@
                                 <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership" style="width: 100%;"/>
                             </form>
                         </div>
-                        //Here the end of foreach loop (previous)
                     </div>
 
                 </div>
@@ -245,7 +250,10 @@
                         </div>
 
                         <div class="col-sm-5" style="float: bottom">
-                            <button type="submit" class="btn-primary" style="width: 100%" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Up For Sale</button>
+                            {{--<button type="submit" class="btn-primary" style="width: 100%; margin-top: 20%;" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Up For Sale</button>--}}
+                            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5%;" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Up For Sale</button>
+                            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5%;" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Cancel Up For Sale</button>
+                            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 5%;" data-toggle="modal" data-target="#other_info_{{$bike->id}}">Mark as Sold</button>
                         </div>
                     </div>
 
@@ -277,7 +285,6 @@
                                 <input type="button" class="btn-primary" value="Change Ownership" name="change_ownership" style="width: 100%;"/>
                             </form>
                         </div>
-                        //Here the end of foreach loop (previous)
                     </div>
                 </div>
 
@@ -418,77 +425,27 @@
 </header>
 <!-- end header -->
 
-{{--<!--Start of Up For Sale input-->
---}}{{--<div class="modal-dialog">--}}{{--
-    <div class="modal fade" id="other_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 
-    <div class="loginmodal-container">
-        <h3><b>Enter other required information</b></h3><br>
-
-    <form method="post" action="/buyorsale/upforsale">
-        <table>
-            <tr>
-                <td colspan="2"></td>
-            </tr>
-
-            <tr>
-                <td><h4 style="color: red">Total Used: (year) </h4></td>
-                <td><input type="text" name="total_used" placeholder="Ex. 1 year" required></td>
-            </tr>
-            <tr>
-                <td><h4 style="color: red">Price: (taka)</h4></td>
-                <td><input type="text" name="price" placeholder="Ex. 15000" required></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="radio" name="is_nagotiatable" value="1"> Nagotiatable<br>
-                    <input type="radio" name="is_nagotiatable" value="0"> Fixed<br>
-                </td>
-            </tr>
-
-            <tr>
-                <td><h4 style="color: red;">Comment:</h4></td>
-                <td><input type="text" name="comment" placeholder="place your comment here"></td>
-
-            </tr>
-
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" class="btn-primary" name="submit_other_info" style="float: right" value="SUBMIT"/>
-                    <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                </td>
-            </tr>
-        </table>
-    </form>
-
-
-    </div>
-</div>
-
-<!--End of Up For Sale input -->--}}
-
-        <!-- begin footer -->
-        <footer id="fh5co-footer">
-            <div class="container">
-                <div class="row copyright">
-                    <div class="col-md-12 text-center">
-                        <p>
-                            <small class="block">&copy; Md. Saddam Hossain shakil. All Rights Reserved.</small>
-                            <small class="block">Designed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a> </small>
-                        </p>
-                        <ul class="fh5co-social-icons">
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                            <li><a href="https://www.behance.net/delcode920dc4"><i class="icon-behance"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+<!-- begin footer -->
+<footer id="fh5co-footer">
+    <div class="container">
+        <div class="row copyright">
+            <div class="col-md-12 text-center">
+                <p>
+                    <small class="block">&copy; Md. Saddam Hossain shakil. All Rights Reserved.</small>
+                    <small class="block">Designed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a> </small>
+                </p>
+                <ul class="fh5co-social-icons">
+                    <li><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                    <li><a href="https://www.behance.net/delcode920dc4"><i class="icon-behance"></i></a></li>
+                </ul>
             </div>
-        </footer>
-        <!-- end footer -->
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
 
     </div>
 
@@ -513,19 +470,3 @@
 
 </body>
 </html>
-
-
-
-{{--
-<!doctype html>
-<html lang="en">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-<h1>User Home </h1> {{ Session::get('email')}}
-
-</body>
-</html>--}}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 //use Illuminate\Contracts\Session\Session;
 use App\Bike_history;
 use App\Bike_info;
+use App\Up_for_sale;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User_detail;
@@ -62,10 +63,10 @@ class FetchUserInfoController extends Controller
 
             $personal_info = User_detail::where('id', '=', $user_id)->get();
 
-            //return $personal_info;
+            $upforsale_info = DB::select(DB::raw('SELECT bike_id FROM up_for_sales WHERE is_sold=0 '));
 
             //return $bikes;
-            return view('user.userhome', compact('bikes', 'personal_info'));
+            return view('user.userhome', compact('bikes', 'personal_info','upforsale_info'));
             //return view('user.userhome')->with('bikes',$bikes,'personal_info',$personal_info);
         }
     }
@@ -129,7 +130,7 @@ class FetchUserInfoController extends Controller
             echo '</script>';
 
             //return $bike_info_data;
-            return redirect('/userhome');
+            return redirect('userhome');
             //return view('user.addbike');
         }
 
