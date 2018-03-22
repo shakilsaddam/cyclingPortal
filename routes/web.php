@@ -59,3 +59,7 @@ Route::get('/people', function (){
     //$user_detail = \App\User_detail::find(1)->bike_info;
     //return $user_detail;
 });
+
+Route::get('/blog', function (){
+    return view('blog.index');
+});
