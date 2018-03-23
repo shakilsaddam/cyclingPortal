@@ -60,6 +60,6 @@ Route::get('/people', function (){
     //return $user_detail;
 });
 
-Route::get('/blog', function (){
-    return view('blog.index');
-});
+
+//Routes - Blog
+Route::get('/blogs/home','BlogController@index');

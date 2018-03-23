@@ -1025,6 +1025,7 @@ iframe {
 <body>
 
 <!-- MENU TAB -->
+
 <div id="main-wrapper-menu">
   <div id="wrapper-cross"></div>
 	<div id="wrapper-menu">
@@ -1105,8 +1106,44 @@ iframe {
 <div id="wrapper-A3" class="object">
     
     	<div id="A3-left">
-        
-        	<div id="wrapper-post1" class="text-part-A5">
+
+			@foreach($blog_posts as $blog_post)
+
+				<div id="wrapper-post1" class="text-part-A5">
+
+					<a href="spore-post2.html"><div id="A3-left-image-2"><img src="/uploads/{{$blog_post->images}}"  alt="post an image with animation" title="post an image with animation" class="grow"/></div></a>
+					{{--<div class="video-container-1">
+						<iframe width="560" height="315" src="//www.youtube.com/embed/aN-zEzr4Zwc" frameborder="0" allowfullscreen></iframe>
+					</div>--}}
+
+					<div id="wrapper-A3-left-date-1">
+						<div id="A3-left-date-1">{{$blog_post->date_of_posting}}</div>
+						<div id="A3-left-icone-1"></div>
+					</div>
+					<ul>
+						<li><div id="A3-left-title-1"><a href="spore-post1.html">{{$blog_post->title}}</a></div></li>
+					</ul>
+					<div id="A3-left-text-1">{{$blog_post->description}}</div>
+				</div>
+			@endforeach
+
+
+
+
+
+				<div id="wrapper-post2" class="text-part-A5">
+					<a href="spore-post2.html"><div id="A3-left-image-2"><img src="/blog_img/image1-01.jpg"  alt="post an image with animation" title="post an image with animation" class="grow"/></div></a>
+
+					<div id="wrapper-A3-left-date-2">
+						<div id="A3-left-date-2">21 nov, 2014</div>
+						<div id="A3-left-icone-2"></div>
+					</div>
+					<ul>
+						<li><div id="A3-left-title-2"><a href="spore-post2.html">Post an image with animation</a></div></li>
+					</ul>
+					<div id="A3-left-text-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</div>
+				</div>
+        	{{--<div id="wrapper-post1" class="text-part-A5">
             	<div class="video-container-1">
 					<iframe width="560" height="315" src="//www.youtube.com/embed/aN-zEzr4Zwc" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -1119,9 +1156,9 @@ iframe {
             		<li><div id="A3-left-title-1"><a href="spore-post1.html">Post a Youtube video</a></div></li>
             	</ul>
                 <div id="A3-left-text-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>  
-            </div>
+            </div>--}}
             
-            <div id="wrapper-post2" class="text-part-A5">
+            {{--<div id="wrapper-post2" class="text-part-A5">
             	<a href="spore-post2.html"><div id="A3-left-image-2"><img src="/blog_img/image1-01.jpg"  alt="post an image with animation" title="post an image with animation" class="grow"/></div></a>
             
             	<div id="wrapper-A3-left-date-2">
@@ -1132,7 +1169,7 @@ iframe {
             		<li><div id="A3-left-title-2"><a href="spore-post2.html">Post an image with animation</a></div></li> 
             	</ul>
             	<div id="A3-left-text-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</div>  
-            </div>
+            </div>--}}
             
              <div id="wrapper-post3" class="text-part-A5">
             	<a href="spore-post3.html"><div id="A3-left-image-3"><img src="/blog_img/image6-01.jpg"  alt="Auto-resized image" title="Auto-resized image" class="grow"/></div></a>
