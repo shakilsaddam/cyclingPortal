@@ -96,7 +96,6 @@
   </div>
 
 </section>-->
-
 <div class="container intro">
 	<div class="row">
 		<!-- Latest Posts -->
@@ -111,22 +110,23 @@
 						<div class="post-thumbnail"><a href="/blogs/detail/{{$blog_post->id}}"><img src="/uploads/{{$blog_post->images}}" alt="..." class="img-fluid"></a></div>
 						<div class="post-details">
 							<div class="post-meta d-flex justify-content-between">
-								<div class="date meta-last"><b>Uploaded on: </b>{{ Carbon\Carbon::parse($blog_post->date_of_posting)->format('d F | Y') }} </div>
+								<div class="date meta-last">{{ Carbon\Carbon::parse($blog_post->date_of_posting)->format('d F | Y') }} </div>
 								<div class="category"><a href="#">{{$blog_post->categories}}</a></div>
 							</div><a href="/blogs/detail/{{$blog_post->id}}">
 								<h3 class="h4">{{$blog_post->title}}</h3></a>
-							<p class="text-muted">{{$blog_post->description}}</p>
+							<p class="text-muted">{{str_limit($blog_post->description, 200)}}</p>
 							{{--<a href="blogs/detail/{{$blog_post->id}}">view details</a>--}}
-							<footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
-									<div class="avatar"><img src="/uploads/{{$blog_post->profile_photo}}" alt="..." class="img-fluid"></div>
-									<div class="title"><span>{{$blog_post->fname}} {{$blog_post->lname}}</span></div></a>
-								<div class="date"><i class="icon-clock"></i>Last Updated: {{ Carbon\Carbon::parse($blog_post->last_updated)->format('d F | Y') }} </div>
+							<footer class="post-footer d-flex align-items-center"><a href="#" data-toggle="tooltip" title="Uploaded By" class="author d-flex align-items-center flex-wrap">
+                                <div class="avatar"><img src="/uploads/{{$blog_post->profile_photo}}" alt="..." class="img-fluid"></div>
+                                <div class="title"><span>{{$blog_post->fname}} {{$blog_post->lname}}</span></div></a>
+                                {{--<div class="date"><i class="icon-clock"></i>{{ Carbon\Carbon::parse($blog_post->last_updated)->format('d F | Y') }} </div>--}}
 							</footer>
 						</div>
 					</div>
 
 					@endforeach
-					<!-- post             -->
+                </div>
+					{{--<!-- post             -->
 					<div class="post col-xl-4">
 						<div class="post-thumbnail"><a href="post.html"><img src="/blog_img/blog-post-2.jpg" alt="..." class="img-fluid"></a></div>
 						<div class="post-details">
@@ -180,7 +180,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>--}}
 				<!-- Pagination -->
 				<nav aria-label="Page navigation example">
 					<ul class="pagination pagination-template d-flex justify-content-center">
