@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Blog - B4 Template by Bootstrap Temple</title>
+    <title>{{$blog_detail[0]->title}}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -49,24 +49,24 @@
         <div class="container">
             <!-- Navbar Brand -->
             <div class="navbar-header d-flex align-items-center justify-content-between">
-                <!-- Navbar Brand --><a href="index.html" class="navbar-brand">Bootstrap Blog</a>
+                <!-- Navbar Brand --><a href="/blogs/home" class="navbar-brand"><h3>Travel Bangladesh with your Bicycle</h3></a>
                 <!-- Toggle Button-->
                 <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
             </div>
             <!-- Navbar Menu -->
             <div id="navbarcollapse" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
+                    <li class="nav-item"><a href="/blogs/home" class="nav-link ">Home</a>
                     </li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
+                    <li class="nav-item"><a href="#" class="nav-link ">Long Trip</a>
                     </li>
-                    <li class="nav-item"><a href="post.html" class="nav-link active ">Post</a>
+                    <li class="nav-item"><a href="#" class="nav-link ">Short Trip</a>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
+                    <li class="nav-item"><a href="#" class="nav-link ">Cross Country</a>
                     </li>
                 </ul>
                 <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
-                <ul class="langs navbar-text"><a href="#" class="active">EN</a><span>           </span><a href="#">ES</a></ul>
+                {{--<ul class="langs navbar-text"><a href="#" class="active">EN</a><span>           </span><a href="#">ES</a></ul>--}}
             </div>
         </div>
     </nav>
@@ -82,7 +82,7 @@
                         <div class="post-meta d-flex justify-content-between">
                             <div class="category"><a href="#">Business</a><a href="#">Financial</a></div>
                         </div>
-                        <h1>Diversity in Engineering: The Effect on Questions<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
+                        <h3>Diversity in Engineering: The Effect on Questions<a href="#"><i class="fa fa-bookmark-o"></i></a></h3>
                         <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
                                 <div class="avatar"><img src="/blog_img/avatar-1.jpg" alt="..." class="img-fluid"></div>
                                 <div class="title"><span>John Doe</span></div></a>
@@ -262,11 +262,11 @@
                 </header>
                 <div class="blog-posts"><a href="#">
                         <div class="item d-flex align-items-center">
-                            <div class="image"><img src="/blog_img/small-thumbnail-1.jpg" alt="..." class="img-fluid"></div>
-                            <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
+                            <div class="image"><img src="/uploads/vc.jpg" alt="..." class="img-fluid"></div>
+                            <div class="title"><strong>Test Post</strong>
                                 <div class="d-flex align-items-center">
-                                    <div class="views"><i class="icon-eye"></i> 500</div>
-                                    <div class="comments"><i class="icon-comment"></i>12</div>
+                                    <div class="views"><i class="icon-clock"></i> 20 March | 2018</div>
+                                    {{--<div class="comments"><i class="icon-comment"></i>12</div>--}}
                                 </div>
                             </div>
                         </div></a><a href="#">
@@ -294,11 +294,11 @@
                 <header>
                     <h3 class="h6">Categories</h3>
                 </header>
-                <div class="item d-flex justify-content-between"><a href="#">Growth</a><span>12</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Sales</a><span>8</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Tips</a><span>17</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
+                <div class="item d-flex justify-content-between"><a href="#">All Posts</a><span>12</span></div>
+                <div class="item d-flex justify-content-between"><a href="#">Long Trip</a><span>25</span></div>
+                <div class="item d-flex justify-content-between"><a href="#">Short Trip</a><span>8</span></div>
+                <div class="item d-flex justify-content-between"><a href="#">Cross Country</a><span>17</span></div>
+
             </div>
             <!-- Widget [Tags Cloud Widget]-->
             {{--<div class="widget tags">
@@ -317,64 +317,55 @@
     </div>
 </div>
 
-
-
-
 <!-- Photo Gallery -->
-<div class="container">
-    <div class="row">
-        <main class="post blog-post col-lg-12">
-            <div class="container">
-                <div class="post-single">
-                    <header>
-                        <h3 class="h6">Photo Gallery of the post</h3>
-                        <div class="container">
-                            {{--<h2>Image Gallery</h2>
-                            <p>The .thumbnail class can be used to display an image gallery.</p>
-                            <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
-                            <p>Click on the images to enlarge them.</p>--}}
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <a href="/blog_img/gallery-1.jpg" target="_blank">
-                                            <img src="/blog_img/gallery-1.jpg" alt="Lights" style="width:100%">
-                                            {{--<div class="caption">
-                                                <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                                            </div>--}}
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <a href="/w3images/nature.jpg" target="_blank">
-                                            <img src="/blog_img/gallery-2.jpg" alt="Nature" style="width:100%">
-                                            {{--<div class="caption">
-                                                <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                                            </div>--}}
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <a href="/w3images/fjords.jpg" target="_blank">
-                                            <img src="/blog_img/gallery-4.jpg" alt="Fjords" style="width:100%">
-                                            {{--<div class="caption">
-                                                <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                                            </div>--}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+<div class="container" style="margin-bottom: 50px;">
+    <div class="post-single">
+        <header>
+            <h3 class="h6">Photo Gallery of the post</h3>
+            <div class="container" style="margin-top: 30px">
+                {{--<h2>Image Gallery</h2>
+                <p>The .thumbnail class can be used to display an image gallery.</p>
+                <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
+                <p>Click on the images to enlarge them.</p>--}}
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="/blog_img/gallery-1.jpg" target="_blank">
+                                <img src="/blog_img/gallery-1.jpg" alt="Lights" style="width:100%">
+                                {{--<div class="caption">
+                                    <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                </div>--}}
+                            </a>
                         </div>
-
-
-                    </header>
-
-                    <div class="comment-body">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="/w3images/nature.jpg" target="_blank">
+                                <img src="/blog_img/gallery-2.jpg" alt="Nature" style="width:100%">
+                                {{--<div class="caption">
+                                    <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                </div>--}}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="/w3images/fjords.jpg" target="_blank">
+                                <img src="/blog_img/gallery-4.jpg" alt="Fjords" style="width:100%">
+                                {{--<div class="caption">
+                                    <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                </div>--}}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+
+
+        </header>
+
+        <div class="comment-body">
+        </div>
     </div>
 </div>
 
@@ -440,10 +431,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; 2017. All rights reserved. Your great site.</p>
+                    <p>&copy; Md. Saddam Hossain shakil. All Rights Reserved.</p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <p>Template By <a href="https://bootstraptemple.com" class="text-white">Bootstrap Temple</a>
+                    <p>Designed & Developed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a>
                     <!-- Please do not remove the backlink to Bootstrap Temple unless you purchase an attribution-free license @ Bootstrap Temple or support us at http://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)                         -->
                     </p>
                 </div>

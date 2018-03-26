@@ -64,3 +64,6 @@ Route::get('/people', function (){
 //Routes - Blog
 Route::get('/blogs/home','BlogController@index');
 Route::get('/blogs/detail/{blog_id}','BlogController@detail');
+Route::get('/blogs/test', function(){
+    return view('blog.test');
+});

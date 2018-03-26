@@ -22,6 +22,12 @@ class BlogController extends Controller
         $blog_detail = DB::select(DB::raw
         ('SELECT * FROM `blog_posts` WHERE id = :blog_id'), array("blog_id"=>$blog_id)
         );
-        return view('blog.blog_detail');
+
+        //return $blog_detail[0]->title;
+        //$title = $blog_detail;
+
+        //$title = $blog_detail->title;
+        //return $title;
+        return view('blog.blog_detail', compact('blog_detail'));
     }
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Bootstrap Blog - B4 Template by Bootstrap Temple</title>
+	<title>Travel Bangladesh with your Bicycle</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="all,follow">
@@ -49,24 +49,24 @@
 		<div class="container">
 			<!-- Navbar Brand -->
 			<div class="navbar-header d-flex align-items-center justify-content-between">
-				<!-- Navbar Brand --><a href="index.html" class="navbar-brand">Bootstrap Blog</a>
+				<!-- Navbar Brand --><a href="index.html" class="navbar-brand"><h3>Travel Bangladesh with your Bicycle</h3></a>
 				<!-- Toggle Button-->
 				<button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
 			</div>
 			<!-- Navbar Menu -->
 			<div id="navbarcollapse" class="collapse navbar-collapse">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
+					<li class="nav-item"><a href="/blogs/home" class="nav-link active ">Home</a>
 					</li>
-					<li class="nav-item"><a href="blog.html" class="nav-link active ">Blog</a>
+					<li class="nav-item"><a href="#" class="nav-link ">Long Trip</a>
 					</li>
-					<li class="nav-item"><a href="post.html" class="nav-link ">Post</a>
+					<li class="nav-item"><a href="#" class="nav-link ">Short Trip</a>
 					</li>
-					<li class="nav-item"><a href="#" class="nav-link ">Contact</a>
+					<li class="nav-item"><a href="#" class="nav-link ">Cross Country</a>
 					</li>
 				</ul>
 				<div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
-				<ul class="langs navbar-text"><a href="#" class="active">EN</a><span>           </span><a href="#">ES</a></ul>
+                {{--<ul class="langs navbar-text"><a href="#" class="active">EN</a><span>           </span><a href="#">ES</a></ul>--}}
 			</div>
 		</div>
 	</nav>
@@ -269,7 +269,7 @@
 </div>
 <!-- Page Footer-->
 <footer class="main-footer">
-	<div class="container">
+	{{--<div class="container">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="logo">
@@ -320,15 +320,15 @@
 						</div></a></div>
 			</div>
 		</div>
-	</div>
+	</div>--}}
 	<div class="copyrights">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<p>&copy; 2017. All rights reserved. Your great site.</p>
+					<p>&copy; Md. Saddam Hossain shakil. All Rights Reserved.</p>
 				</div>
 				<div class="col-md-6 text-right">
-					<p>Template By <a href="https://bootstraptemple.com" class="text-white">Bootstrap Temple</a>
+					<p>Designed & Developed by <a href="https://facebook.com/shakil.saddam.7" target="_blank">Shakil</a>
 					<!-- Please do not remove the backlink to Bootstrap Temple unless you purchase an attribution-free license @ Bootstrap Temple or support us at http://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)                         -->
 					</p>
 				</div>
