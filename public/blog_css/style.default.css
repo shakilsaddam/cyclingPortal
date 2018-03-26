@@ -525,11 +525,11 @@ div[class*="-btn"] {
 }
 
 .navbar .search-area-inner {
-  position: fixed;
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100vh;
+  /*height: 100vh; */
+  height:calc(100vh - 207px);
   background: rgba(255, 255, 255, 0.99);
   padding: 20px !important;
 }
