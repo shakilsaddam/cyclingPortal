@@ -36,6 +36,40 @@ class BlogController extends Controller
         ORDER BY date_of_posting
         LIMIT 3'));
 
-        return view('blog.blog_detail', compact('blog_detail', 'latest_posts'));
+        $count_all_posts = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts')
+        );
+
+        $count_long_trip = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE categories = "Long Trip"')
+        );
+
+        $count_short_trip = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE categories = "Short Trip"')
+        );
+
+        $count_cross_country = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE categories = "Cross Country"')
+        );
+
+
+        return view('blog.blog_detail', compact('blog_detail', 'latest_posts', 'count_all_posts', 'count_long_trip', 'count_short_trip', 'count_cross_country'));
+    }
+
+
+    public function longTrip()
+    {
+        return 'Long Trips';
+    }
+
+    public function shortTrip()
+    {
+        return 'Short Trips';
+    }
+
+
+    public function crossCountry()
+    {
+        return 'Cross Country';
     }
 }

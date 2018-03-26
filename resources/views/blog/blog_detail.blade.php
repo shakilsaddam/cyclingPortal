@@ -58,11 +58,11 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="/blogs/home" class="nav-link ">Home</a>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Long Trip</a>
+                    <li class="nav-item"><a href="/blogs/LongTrip" class="nav-link ">Long Trip</a>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Short Trip</a>
+                    <li class="nav-item"><a href="/blogs/ShortTrip" class="nav-link ">Short Trip</a>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Cross Country</a>
+                    <li class="nav-item"><a href="/blogs/CrossCountry" class="nav-link ">Cross Country</a>
                     </li>
                 </ul>
                 <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
@@ -305,10 +305,10 @@
                 <header>
                     <h3 class="h6">Categories</h3>
                 </header>
-                <div class="item d-flex justify-content-between"><a href="#">All Posts</a><span>12</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Long Trip</a><span>25</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Short Trip</a><span>8</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Cross Country</a><span>17</span></div>
+                <div class="item d-flex justify-content-between"><a href="/blogs/home">All Posts</a><span>{{$count_all_posts[0]->total}}</span></div>
+                <div class="item d-flex justify-content-between"><a href="/blogs/LongTrip">Long Trip</a><span>{{$count_long_trip[0]->total}}</span></div>
+                <div class="item d-flex justify-content-between"><a href="/blogs/ShortTrip">Short Trip</a><span>{{$count_short_trip[0]->total}}</span></div>
+                <div class="item d-flex justify-content-between"><a href="/blogs/CrossCountry">Cross Country</a><span>{{$count_cross_country[0]->total}}</span></div>
 
             </div>
             <!-- Widget [Tags Cloud Widget]-->

@@ -64,6 +64,11 @@ Route::get('/people', function (){
 //Routes - Blog
 Route::get('/blogs/home','BlogController@index');
 Route::get('/blogs/detail/{blog_id}','BlogController@detail');
+
+Route::get('/blogs/LongTrip','BlogController@longTrip');
+Route::get('/blogs/ShortTrip','BlogController@shortTrip');
+Route::get('/blogs/CrossCountry','BlogController@crossCountry');
+
 Route::get('/blogs/test', function(){
     return view('blog.test');
 });

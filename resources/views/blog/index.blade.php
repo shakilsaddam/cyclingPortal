@@ -55,16 +55,16 @@
 			</div>
 			<!-- Navbar Menu -->
 			<div id="navbarcollapse" class="collapse navbar-collapse">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="/blogs/home" class="nav-link active ">Home</a>
-					</li>
-					<li class="nav-item"><a href="#" class="nav-link ">Long Trip</a>
-					</li>
-					<li class="nav-item"><a href="#" class="nav-link ">Short Trip</a>
-					</li>
-					<li class="nav-item"><a href="#" class="nav-link ">Cross Country</a>
-					</li>
-				</ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/blogs/home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item"><a href="/blogs/LongTrip" class="nav-link ">Long Trip</a>
+                    </li>
+                    <li class="nav-item"><a href="/blogs/ShortTrip" class="nav-link ">Short Trip</a>
+                    </li>
+                    <li class="nav-item"><a href="/blogs/CrossCountry" class="nav-link ">Cross Country</a>
+                    </li>
+                </ul>
 				<div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
                 {{--<ul class="langs navbar-text"><a href="#" class="active">EN</a><span>           </span><a href="#">ES</a></ul>--}}
 			</div>
@@ -111,7 +111,17 @@
 						<div class="post-details">
 							<div class="post-meta d-flex justify-content-between">
 								<div class="date meta-last">{{ Carbon\Carbon::parse($blog_post->date_of_posting)->format('d F | Y') }} </div>
-								<div class="category"><a href="#">{{$blog_post->categories}}</a></div>
+								<div class="category">
+                                    <a href="
+                                        @if($blog_post->categories=='Short Trip')
+                                            /blogs/ShortTrip
+                                        @elseif($blog_post->categories=='Cross Country')
+                                            /blogs/CrossCountry
+                                        @elseif($blog_post->categories=='Long Trip')
+                                            /blogs/LongTrip
+                                        @endif
+                                    ">{{$blog_post->categories}}</a>
+                                </div>
 							</div><a href="/blogs/detail/{{$blog_post->id}}">
 								<h3 class="h4">{{$blog_post->title}}</h3></a>
 							<p class="text-muted">{{str_limit($blog_post->description, 200)}}</p>
