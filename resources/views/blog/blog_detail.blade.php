@@ -123,16 +123,22 @@
 
                         <!-- Latest updates of the post -->
 
+                        //if else condition may be applied here if there is no new update then this div should be disabled.
                         <div class="post-comments">
                             <header>
                                 <h3 class="h6">Latest updates of the post:</h3>
                             </header>
+
+                            @foreach($blog_updates as $blog_update)
                             <div class="comment-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                <h7>{{$blog_update->update_date}}</h7>
+                                <p>{{$blog_update->texts}}</p>
                             </div>
-                            <div class="comment-body">
+                            @endforeach
+                            {{--<div class="comment-body">
+                                <p><b>20 May| 2018</b></p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                            </div>
+                            </div>--}}
                         </div>
 
                         {{--<!-- Photo Gallery -->
