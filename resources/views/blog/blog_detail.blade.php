@@ -89,8 +89,8 @@
                         </div>
                         <h3>{{$blog_detail[0]->title}}<a href="#"><i class="fa fa-bookmark-o"></i></a></h3>
                         <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
-                                <div class="avatar"><img src="/blog_img/avatar-1.jpg" alt="..." class="img-fluid"></div>
-                                <div class="title"><span>John Doe</span></div></a>
+                                <div class="avatar"><img src="/uploads/{{$blog_detail[0]->profile_photo}}" alt="..." class="img-fluid"></div>
+                                <div class="title"><span>{{$blog_detail[0]->fname}} {{$blog_detail[0]->lname}}</span></div></a>
                             <div class="d-flex align-items-center flex-wrap">
                                 <div class="date"><i class="icon-clock"></i><b>Last Updated On:</b>
                                     {{ Carbon\Carbon::parse($blog_detail[0]->last_updated)->format('d F | Y') }}</div>
@@ -339,23 +339,27 @@
                 <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
                 <p>Click on the images to enlarge them.</p>--}}
                 <div class="row">
+
+                    @foreach($blog_images as $blog_image)
+
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="/blog_img/gallery-1.jpg" target="_blank">
-                                <img src="/blog_img/gallery-1.jpg" alt="Lights" style="width:100%">
+                            <a href="/uploads/{{$blog_image->image_name}}" target="_blank">
+                                <img src="/uploads/{{$blog_image->image_name}}" alt="Lights" style="width:100%">
                                 {{--<div class="caption">
                                     <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
                                 </div>--}}
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    @endforeach
+                    {{--<div class="col-md-4">
                         <div class="thumbnail">
                             <a href="/w3images/nature.jpg" target="_blank">
                                 <img src="/blog_img/gallery-2.jpg" alt="Nature" style="width:100%">
-                                {{--<div class="caption">
+                                --}}{{--<div class="caption">
                                     <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                                </div>--}}
+                                </div>--}}{{--
                             </a>
                         </div>
                     </div>
@@ -363,12 +367,12 @@
                         <div class="thumbnail">
                             <a href="/w3images/fjords.jpg" target="_blank">
                                 <img src="/blog_img/gallery-4.jpg" alt="Fjords" style="width:100%">
-                                {{--<div class="caption">
+                                --}}{{--<div class="caption">
                                     <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                                </div>--}}
+                                </div>--}}{{--
                             </a>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
 

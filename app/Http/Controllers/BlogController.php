@@ -36,6 +36,11 @@ class BlogController extends Controller
         ORDER BY date_of_posting
         LIMIT 3'));
 
+        $blog_images = DB::select(DB::raw
+        ('SELECT * FROM `blog_images` WHERE blog_id =:blog_id'
+        ), array("blog_id"=>$blog_id)
+        );
+
         $count_all_posts = DB::select(DB::raw
         ('SELECT COUNT(id) AS total FROM blog_posts')
         );
@@ -53,7 +58,7 @@ class BlogController extends Controller
         );
 
 
-        return view('blog.blog_detail', compact('blog_detail', 'latest_posts', 'count_all_posts', 'count_long_trip', 'count_short_trip', 'count_cross_country'));
+        return view('blog.blog_detail', compact('blog_detail', 'latest_posts', 'count_all_posts', 'count_long_trip', 'count_short_trip', 'count_cross_country','blog_images'));
     }
 
 
