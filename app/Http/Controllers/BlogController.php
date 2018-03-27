@@ -46,7 +46,6 @@ class BlogController extends Controller
         ), array("blog_id"=>$blog_id)
         );
 
-
         $count_all_posts = DB::select(DB::raw
         ('SELECT COUNT(id) AS total FROM blog_posts')
         );
@@ -82,5 +81,42 @@ class BlogController extends Controller
     public function crossCountry()
     {
         return 'Cross Country';
+    }
+
+    public function index1($url_name)
+    {
+        switch ($url_name)
+        {
+            case 'home':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id'));
+                return view('blog.index',compact('blog_posts'));
+                break;
+
+            case 'CrossCountry':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="Cross Country"'));
+                return view('blog.index',compact('blog_posts'));
+                break;
+
+            case 'LongTrip':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="long trip"'));
+                return view('blog.index',compact('blog_posts'));
+                break;
+
+            case 'ShortTrip':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="short trip"'));
+                return view('blog.index',compact('blog_posts'));
+                break;
+
+            default :
+                return redirect('/blogs/home');
+        }
     }
 }

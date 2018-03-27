@@ -113,11 +113,11 @@
 								<div class="date meta-last">{{ Carbon\Carbon::parse($blog_post->date_of_posting)->format('d F | Y') }} </div>
 								<div class="category">
                                     <a href="
-                                        @if($blog_post->categories=='Short Trip')
+                                        @if($blog_post->categories=='short trip')
                                             /blogs/ShortTrip
                                         @elseif($blog_post->categories=='Cross Country')
                                             /blogs/CrossCountry
-                                        @elseif($blog_post->categories=='Long Trip')
+                                        @elseif($blog_post->categories=='long trip')
                                             /blogs/LongTrip
                                         @endif
                                     ">{{$blog_post->categories}}</a>
