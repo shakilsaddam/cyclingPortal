@@ -79,4 +79,45 @@ class BlogController extends Controller
     {
         return 'Cross Country';
     }
+
+    public function index1($url_name)
+    {
+        switch ($url_name)
+        {
+            case 'home':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id'));
+                $to_active = 'home';
+                return view('blog.index',compact('blog_posts','to_active'));
+                break;
+
+            case 'CrossCountry':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="Cross Country"'));
+                $to_active = 'CrossCountry';
+                return view('blog.index',compact('blog_posts','to_active'));
+                break;
+
+            case 'LongTrip':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="long trip"'));
+                $to_active = 'LongTrip';
+                return view('blog.index',compact('blog_posts','to_active'));
+                break;
+
+            case 'ShortTrip':
+                $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
+                `blog_posts`, `user_details` 
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="short trip"'));
+                $to_active = 'ShortTrip';
+                return view('blog.index',compact('blog_posts','to_active'));
+                break;
+
+            default :
+                return redirect('/blogs/home');
+        }
+    }
 }

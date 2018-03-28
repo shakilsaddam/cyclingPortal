@@ -56,13 +56,13 @@
 			<!-- Navbar Menu -->
 			<div id="navbarcollapse" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="/blogs/home" class="nav-link active">Home</a>
+                    <li class="nav-item"><a href="/blogs/home" class="nav-link @if($to_active=="home") active @endif">Home</a>
                     </li>
-                    <li class="nav-item"><a href="/blogs/LongTrip" class="nav-link ">Long Trip</a>
+                    <li class="nav-item"><a href="/blogs/LongTrip" class="nav-link @if($to_active=="LongTrip") active @endif">Long Trip</a>
                     </li>
-                    <li class="nav-item"><a href="/blogs/ShortTrip" class="nav-link ">Short Trip</a>
+                    <li class="nav-item"><a href="/blogs/ShortTrip" class="nav-link @if($to_active=="ShortTrip") active @endif">Short Trip</a>
                     </li>
-                    <li class="nav-item"><a href="/blogs/CrossCountry" class="nav-link ">Cross Country</a>
+                    <li class="nav-item"><a href="/blogs/CrossCountry" class="nav-link @if($to_active=="CrossCountry") active @endif">Cross Country</a>
                     </li>
                 </ul>
 				<div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
@@ -113,11 +113,11 @@
 								<div class="date meta-last">{{ Carbon\Carbon::parse($blog_post->date_of_posting)->format('d F | Y') }} </div>
 								<div class="category">
                                     <a href="
-                                        @if($blog_post->categories=='Short Trip')
+                                        @if($blog_post->categories=='short trip')
                                             /blogs/ShortTrip
                                         @elseif($blog_post->categories=='Cross Country')
                                             /blogs/CrossCountry
-                                        @elseif($blog_post->categories=='Long Trip')
+                                        @elseif($blog_post->categories=='long trip')
                                             /blogs/LongTrip
                                         @endif
                                     ">{{$blog_post->categories}}</a>

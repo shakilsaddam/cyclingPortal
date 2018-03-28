@@ -82,7 +82,15 @@
                         <div class="post-meta d-flex justify-content-between">
 
                             <div class="date meta-last">{{ Carbon\Carbon::parse($blog_detail[0]->date_of_posting)->format('d F | Y') }} </div>
-                            <div class="category"><a href="#">{{$blog_detail[0]->categories}}</a></div>
+                            <div class="category"><a href="
+                                   @if($blog_detail[0]->categories=='short trip')
+                                        /blogs/ShortTrip
+                                   @elseif($blog_detail[0]->categories=='Cross Country')
+                                        /blogs/CrossCountry
+                                    @elseif($blog_detail[0]->categories=='long trip')
+                                        /blogs/LongTrip
+                                    @endif
+                            ">{{$blog_detail[0]->categories}}</a></div>
 
 
                             {{--<div class="category"><a href="#">{{$blog_detail[0]->categories}}--}}{{--</a><a href="#">Financial</a>--}}{{--</div>--}}
@@ -123,24 +131,24 @@
 
                         <!-- Latest updates of the post -->
 
-                        //if else condition may be applied here if there is no new update then this div should be disabled.
                         <div class="post-comments">
                             <header>
                                 <h3 class="h6">Latest updates of the post:</h3>
                             </header>
+                            @if(count($blog_updates)>0)
+                                @foreach($blog_updates as $blog_update)
+                                    <div class="comment-body">
+                                        <h7>{{Carbon\Carbon::parse($blog_update->update_date)->format('d F | Y')}}</h7>
+                                        <p><i>{{$blog_update->texts}}</i></p>
+                                    </div>
+                                @endforeach
 
-                            @foreach($blog_updates as $blog_update)
-                            <div class="comment-body">
-                                <h7>{{$blog_update->update_date}}</h7>
-                                <p>{{$blog_update->texts}}</p>
-                            </div>
-                            @endforeach
-                            {{--<div class="comment-body">
-                                <p><b>20 May| 2018</b></p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                            </div>--}}
+                            @else
+                                <blockquote class="blockquote">
+                                    <p>No Extra photo has been uploaded !!</p>
+                                </blockquote>
+                            @endif
                         </div>
-
                         {{--<!-- Photo Gallery -->
                         <div class="post-comments">
                             <header>
@@ -271,39 +279,19 @@
                     <h3 class="h6">Latest Posts</h3>
                 </header>
                 <div class="blog-posts">
+                    @foreach($latest_posts as $latest_posts)
+                    <a href="/blogs/detail/{{$latest_posts->id}}">
+                    <div class="item d-flex align-items-center">
+                        <div class="image"><img src="/uploads/{{$latest_posts->images}}" alt="..." class="img-fluid"></div>
+                        <div class="title"><strong>{{$latest_posts->title}}</strong>
+                            <div class="d-flex align-items-center">
+                                <div class="views"><i class="icon-clock">{{Carbon\Carbon::parse($latest_posts->date_of_posting)->format('d F | Y')}}</i></div>
+                                {{--<div class="comments"><i class="icon-comment"></i>12</div>--}}
+                            </div>
+                        </div>
+                    </div></a>
+                    @endforeach
 
-                        @foreach($latest_posts as $latest_posts)
-                        <a href="/blogs/detail/{{$latest_posts->id}}">
-                        <div class="item d-flex align-items-center">
-                            <div class="image"><img src="/uploads/{{$latest_posts->images}}" alt="..." class="img-fluid"></div>
-                            <div class="title"><strong>{{$latest_posts->title}}</strong>
-                                <div class="d-flex align-items-center">
-                                    <div class="views"><i class="icon-clock">{{Carbon\Carbon::parse($latest_posts->date_of_posting)->format('d F | Y')}}</i></div>
-                                    {{--<div class="comments"><i class="icon-comment"></i>12</div>--}}
-                                </div>
-                            </div>
-                        </div></a>
-
-                        @endforeach
-                    {{--<a href="#">
-                        <div class="item d-flex align-items-center">
-                            <div class="image"><img src="/blog_img/small-thumbnail-2.jpg" alt="..." class="img-fluid"></div>
-                            <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                                <div class="d-flex align-items-center">
-                                    <div class="views"><i class="icon-eye"></i> 500</div>
-                                    <div class="comments"><i class="icon-comment"></i>12</div>
-                                </div>
-                            </div>
-                        </div></a><a href="#">
-                        <div class="item d-flex align-items-center">
-                            <div class="image"><img src="/blog_img/small-thumbnail-3.jpg" alt="..." class="img-fluid"></div>
-                            <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                                <div class="d-flex align-items-center">
-                                    <div class="views"><i class="icon-eye"></i> 500</div>
-                                    <div class="comments"><i class="icon-comment"></i>12</div>
-                                </div>
-                            </div>
-                        </div></a>--}}
                 </div>
             </div>
             <!-- Widget [Categories Widget]-->
@@ -345,9 +333,13 @@
                 <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
                 <p>Click on the images to enlarge them.</p>--}}
                 <div class="row">
+                    @if(count($blog_images)==0)
+                        <blockquote class="blockquote">
+                            <p>No Extra photo has been uploaded !!</p>
+                        </blockquote>
+                    @else
 
                     @foreach($blog_images as $blog_image)
-
                     <div class="col-md-4">
                         <div class="thumbnail">
                             <a href="/uploads/{{$blog_image->image_name}}" target="_blank">
@@ -359,6 +351,8 @@
                         </div>
                     </div>
                     @endforeach
+
+                    @endif
                     {{--<div class="col-md-4">
                         <div class="thumbnail">
                             <a href="/w3images/nature.jpg" target="_blank">

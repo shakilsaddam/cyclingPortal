@@ -62,8 +62,9 @@ Route::get('/people', function (){
 
 
 //Routes - Blog
-Route::get('/blogs/home','BlogController@index');
+/*Route::get('/blogs/home','BlogController@index');*/
 Route::get('/blogs/detail/{blog_id}','BlogController@detail');
+Route::get('/blogs/{url_name}','BlogController@index1');
 
 Route::get('/blogs/LongTrip','BlogController@longTrip');
 Route::get('/blogs/ShortTrip','BlogController@shortTrip');
