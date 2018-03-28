@@ -27,9 +27,6 @@ class BlogController extends Controller
         ORDER BY date_of_posting
         LIMIT 2'), array("blog_id"=>$blog_id)
         );
-        /*$blog_detail = DB::select(DB::raw
-        ('SELECT * FROM `blog_posts` WHERE id = :blog_id'), array("blog_id"=>$blog_id)
-        );*/
 
         $latest_posts = DB::select(DB::raw
         ('SELECT * FROM `blog_posts`
@@ -45,7 +42,6 @@ class BlogController extends Controller
         ('SELECT * FROM `blog_updates` WHERE blog_id =:blog_id'
         ), array("blog_id"=>$blog_id)
         );
-
 
         $count_all_posts = DB::select(DB::raw
         ('SELECT COUNT(id) AS total FROM blog_posts')
