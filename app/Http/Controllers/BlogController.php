@@ -131,13 +131,15 @@ class BlogController extends Controller
 
     public function storeBlog(Request $request)
     {
-        $title = $request->input('title');
+        $title = $request->input('blog_title');
         $date_of_travelling = $request->input('date_of_travelling');
         $category = $request->input('category');
         $description = $request->input('description');
 
-        return $description;
-        return view('blog.createBlogPost', compact('description'));
+        DB::insert('insert into blog_posts (posted_by,title,description,categories,date_of_posting,images,video,last_updated) VALUES (?,?,?,?,?,?,?,?)',[1,$title,$description,$category,$date_of_travelling,'shakil.jpg','vid.mp4','2018-03-29']);
+        echo "Record inserted successfully.<br/>";
+        //return $description;
+        //return view('blog.createBlogPost', compact('description'));
 
     }
 

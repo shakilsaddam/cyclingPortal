@@ -107,8 +107,8 @@
                             </div>
                         </div>
                         <div class="post-body">
-                            {{$blog_detail[0]->description}}
-                            <p>{{$blog_detail[0]->description}}</p>
+                            {!! html_entity_decode($blog_detail[0]->description) !!}
+                            {{--<p>{{$blog_detail[0]->description}}</p>--}}
 
                             {{--<p> <img src="img/featured-pic-3.jpeg" alt="..." class="img-fluid"></p>
                             <h3>Lorem Ipsum Dolor</h3>--}}
