@@ -63,9 +63,8 @@ Route::get('/people', function (){
 
 //Routes - Blog
 /*Route::get('/blogs/home','BlogController@index');*/
-Route::get('/blogs/upload', function(){
-    return view('blog.createBlogPost');
-});
+Route::get('/blogs/upload','BlogController@createBlog');
+Route::POST('/blogs/upload','BlogController@storeBlog');
 
 Route::get('/blogs/test', function(){
     return view('blog.htmleditor');

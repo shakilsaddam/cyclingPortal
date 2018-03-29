@@ -117,7 +117,28 @@ class BlogController extends Controller
                 break;
 
             default :
-                return redirect('/blogs/home');
+
+                return abort(404);
+                return response()->view('errors.404',[],404);
+                //return redirect('/blogs/home');
         }
     }
+
+    public function createBlog()
+    {
+        return view('blog.createBlogPost');
+    }
+
+    public function storeBlog(Request $request)
+    {
+        $title = $request->input('title');
+        $date_of_travelling = $request->input('date_of_travelling');
+        $category = $request->input('category');
+        $description = $request->input('description');
+
+        return $description;
+        return view('blog.createBlogPost', compact('description'));
+
+    }
+
 }

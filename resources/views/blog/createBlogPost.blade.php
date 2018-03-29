@@ -26,26 +26,33 @@
 
 
     <!-- include libraries(jQuery, bootstrap) -->
-    {{--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">--}}
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-
-    <!-- include summernote css/js -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 
 
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+
+
+    <!-- Tinymc js files -->
+    <script src="/tinymce/jquery.tinymce.min.js"></script>
+    <script src="/tinymce/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+           selector: "textarea.editor",
+        });
+    </script>
+
+
 </head>
 <body>
 
-
+{{--<script>
     $(document).ready(function() {
         $('#description').summernote();
     });
-
+</script>--}}
 
 
 <header class="header">
@@ -96,8 +103,8 @@
 <!-- The Form -->
 <div class="container" style="margin-top: 30px">
     <fieldset>
-        <legend><label>Write your experience here</label></legend>
-        <form>
+        <legend><label>Share your experience here</label></legend>
+        <form method="POST" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
@@ -122,12 +129,12 @@
             </div>
 
             <div class="form-group row">
-                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <label for="description" class="col-sm-2 col-form-label">The Story</label>
 
                 <div class="col-sm-10">
                 </div>
                 <div class="col-sm-12">
-                    <textarea rows=3 class="form-control" id="description" placeholder="" name="description"></textarea>
+                    <textarea rows="10" cols="50" class="form-control editor" id="description" placeholder="" name="description"></textarea>
                 </div>
             </div>
 
@@ -145,6 +152,7 @@
                 </div>
             </div>
 
+            <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
             <div class="form-group row">
                 <button type="submit" name="submit" class="btn btn-primary">SUBMIT</button>
             </div>
