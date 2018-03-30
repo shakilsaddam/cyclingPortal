@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog_image;
+use App\Blog_post;
+use App\Http\Requests\UploadPhotoRequest;
 use Illuminate\Http\Request;
 use DB;
 
@@ -119,25 +122,53 @@ class BlogController extends Controller
             default :
 
                 return abort(404);
-                return response()->view('errors.404',[],404);
+                //return response()->view('errors.404',[],404);
                 //return redirect('/blogs/home');
         }
     }
 
     public function createBlog()
     {
+        //$blog_updates = \App\Blog_post::find(1)->blog_updates;
+        /*$blog_posts = \App\Blog_post::find(1);
+        $blog_images = \App\Blog_post::find(1);
+        return $blog_posts;*/
         return view('blog.createBlogPost');
     }
 
-    public function storeBlog(Request $request)
+    public function storeBlog(UploadPhotoRequest $request)
     {
-        $title = $request->input('blog_title');
+
+        $blog_posts = new Blog_post;
+
+        $blog_posts->posted_by = 1;
+        $blog_posts->title = request('blog_title');
+        $blog_posts->description = request('description');
+        $blog_posts->category = request('category');
+        $blog_posts->cover_photo = request('cover_photo');
+        $blog_posts->date_of_posting = new \DateTime();
+        $blog_posts->save();
+
+        foreach ($request->photo_gallery as $photo)
+        {
+            $filename = $photo->store('uploads');
+            Blog_image::create([
+                'blog_id' => $blog_posts->id,
+                'image_name' => $filename
+            ]);
+            return 'Upload Successful';
+        }
+
+
+
+
+        /*$title = $request->input('blog_title');
         $date_of_travelling = $request->input('date_of_travelling');
         $category = $request->input('category');
         $description = $request->input('description');
 
         DB::insert('insert into blog_posts (posted_by,title,description,categories,date_of_posting,images,video,last_updated) VALUES (?,?,?,?,?,?,?,?)',[1,$title,$description,$category,$date_of_travelling,'shakil.jpg','vid.mp4','2018-03-29']);
-        echo "Record inserted successfully.<br/>";
+        echo "Record inserted successfully.<br/>";*/
         //return $description;
         //return view('blog.createBlogPost', compact('description'));
 

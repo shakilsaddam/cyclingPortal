@@ -121,9 +121,9 @@
                 <label for="category" class="col-sm-2 col-form-label">Select a Category</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="category" name="category">
-                        <option>Short Trip</option>
-                        <option>Long Trip</option>
-                        <option>Cross Country</option>
+                        <option value="short trip">Short Trip</option>
+                        <option value="long trip">Long Trip</option>
+                        <option value="Cross Country">Cross Country</option>
                     </select>
                 </div>
             </div>
@@ -141,14 +141,14 @@
             <div class="form-group row">
                 <label for="cover_photo" class="col-sm-2 col-form-label">Cover Photo</label>
                 <div class="col-sm-10">
-                    <input type="file" accept="image/png, image/jpeg, image/gif" name="cover_photo" required/>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="cover_photo" required/>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="photo_gallery" class="col-sm-2 col-form-label">Photos for Photo Gallery</label>
                 <div class="col-sm-10">
-                    <input type="file" accept="image/png, image/jpeg, image/gif" name="photo_gallery" required/>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="photo_gallery" required/>
                 </div>
             </div>
 
