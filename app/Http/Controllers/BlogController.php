@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Blog_image;
 use App\Blog_post;
 use App\Http\Requests\UploadPhotoRequest;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Request;
 use DB;
 
 class BlogController extends Controller
@@ -51,15 +53,15 @@ class BlogController extends Controller
         );
 
         $count_long_trip = DB::select(DB::raw
-        ('SELECT COUNT(id) AS total FROM blog_posts WHERE categories = "Long Trip"')
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE category = "Long Trip"')
         );
 
         $count_short_trip = DB::select(DB::raw
-        ('SELECT COUNT(id) AS total FROM blog_posts WHERE categories = "Short Trip"')
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE category = "Short Trip"')
         );
 
         $count_cross_country = DB::select(DB::raw
-        ('SELECT COUNT(id) AS total FROM blog_posts WHERE categories = "Cross Country"')
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE category = "Cross Country"')
         );
 
 
@@ -98,7 +100,7 @@ class BlogController extends Controller
             case 'CrossCountry':
                 $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
                 `blog_posts`, `user_details` 
-                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="Cross Country"'));
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.category="Cross Country"'));
                 $to_active = 'CrossCountry';
                 return view('blog.index',compact('blog_posts','to_active'));
                 break;
@@ -106,7 +108,7 @@ class BlogController extends Controller
             case 'LongTrip':
                 $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
                 `blog_posts`, `user_details` 
-                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="long trip"'));
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.category="long trip"'));
                 $to_active = 'LongTrip';
                 return view('blog.index',compact('blog_posts','to_active'));
                 break;
@@ -114,7 +116,7 @@ class BlogController extends Controller
             case 'ShortTrip':
                 $blog_posts = DB::select(DB::raw('SELECT blog_posts.*,user_details.fname,user_details.lname,user_details.profile_photo FROM
                 `blog_posts`, `user_details` 
-                WHERE blog_posts.posted_by=user_details.id AND blog_posts.categories="short trip"'));
+                WHERE blog_posts.posted_by=user_details.id AND blog_posts.category="short trip"'));
                 $to_active = 'ShortTrip';
                 return view('blog.index',compact('blog_posts','to_active'));
                 break;
@@ -145,11 +147,96 @@ class BlogController extends Controller
         $blog_posts->title = request('blog_title');
         $blog_posts->description = request('description');
         $blog_posts->category = request('category');
-        $blog_posts->cover_photo = request('cover_photo');
         $blog_posts->date_of_posting = new \DateTime();
+
+        $cover_picture = Input::file('cover_photo');
+        $cover_picture_name = $cover_picture->getClientOriginalName();
+        $cover_picture->move('blog_img/photo',$cover_picture_name);
+
+        $blog_posts->cover_photo = $cover_picture_name;
         $blog_posts->save();
 
-        foreach ($request->photo_gallery as $photo)
+        //return "Uploaded";
+
+
+        $images = Request::file('photo_gallery');
+
+        //If the array is not empty
+
+            foreach($images as $file) {
+                // Set the destination path
+                $destinationPath = 'blog_img/photo';
+                // Get the orginal filname or create the filename of your choice
+                $filename = $file->getClientOriginalName();
+                // Copy the file in our upload folder
+                $file->move($destinationPath, $filename);
+
+                Blog_image::create([
+                    'blog_id' => $blog_posts->id,
+                    'image_name' => $filename,
+                ]);
+            }
+        return 'pass';
+
+
+        /*foreach (Input::file('photo_gallery') as $gallery)
+        {
+            //$filename = $gallery->getClientOriginalName();
+                $destinationPath = 'blog_img/photo';
+                $filename = $gallery->getClientOriginalName();
+                $gallery->move($destinationPath, $filename);
+
+                Blog_image::create([
+                    'blog_id' => $blog_posts->id,
+                    'image_' => 'dhaka.jpg',
+                ]);
+                return 'successfull';
+
+                //$projectcommunication->media = $filename;
+
+
+            //return $filename;
+        }*/
+
+        /*if ($request->file('photo_gallery'))
+        {
+            foreach ($request->file('photo_gallery') as $gallery)
+            {
+                //$filename = $gallery->getClientOriginalName();
+                if (!empty($gallery))
+                {
+                    $destinationPath = '/blog_img/photo';
+                    $filename = $gallery->getClientOriginalName();
+                    $gallery->move($destinationPath, $filename);*/
+
+                    /*Blog_image::create([
+                        'blog_id' => $blog_posts->id,
+                        'image_name' => 'dhaka.jpg',
+                    ]);*/
+                    //return 'successfull';
+
+                    //$projectcommunication->media = $filename;
+
+               // }
+                //return $filename;
+            //}
+       // }
+
+
+        /*foreach ($request->photo_gallery as $photo)
+        {
+            return $photo;*/
+            /*$filename = $photo->store('uploads');
+            Blog_image::create([
+                'blog_id' => $blog_posts->id,
+                'image_name' => $filename
+            ]);
+            return 'Upload Successful';*/
+        /*}*/
+
+
+
+        /*foreach ($request->photo_gallery as $photo)
         {
             $filename = $photo->store('uploads');
             Blog_image::create([
@@ -157,7 +244,9 @@ class BlogController extends Controller
                 'image_name' => $filename
             ]);
             return 'Upload Successful';
-        }
+        }*/
+
+        //return redirect('/blogs/home');
 
 
 

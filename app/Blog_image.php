@@ -10,4 +10,9 @@ class Blog_image extends Model
     {
         return $this->belongsTo('App\Blog_post');
     }
+    protected $fillable = [
+        'blog_id',
+        'image_name'
+    ];
+    public $timestamps = false;
 }

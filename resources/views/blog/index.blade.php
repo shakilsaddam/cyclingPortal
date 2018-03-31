@@ -107,20 +107,20 @@
 					@foreach($blog_posts as $blog_post)
 
 					<div class="post col-xl-4">
-						<div class="post-thumbnail"><a href="/blogs/detail/{{$blog_post->id}}"><img src="/uploads/{{$blog_post->images}}" alt="..." class="img-fluid"></a></div>
+						<div class="post-thumbnail"><a href="/blogs/detail/{{$blog_post->id}}"><img src="/uploads/{{$blog_post->cover_photo}}" alt="..." class="img-fluid"></a></div>
 						<div class="post-details">
 							<div class="post-meta d-flex justify-content-between">
 								<div class="date meta-last">{{ Carbon\Carbon::parse($blog_post->date_of_posting)->format('d F | Y') }} </div>
 								<div class="category">
                                     <a href="
-                                        @if($blog_post->categories=='short trip')
+                                        @if($blog_post->category=='short trip')
                                             /blogs/ShortTrip
-                                        @elseif($blog_post->categories=='Cross Country')
+                                        @elseif($blog_post->category=='Cross Country')
                                             /blogs/CrossCountry
-                                        @elseif($blog_post->categories=='long trip')
+                                        @elseif($blog_post->category=='long trip')
                                             /blogs/LongTrip
                                         @endif
-                                    ">{{$blog_post->categories}}</a>
+                                    ">{{$blog_post->category}}</a>
                                 </div>
 							</div><a href="/blogs/detail/{{$blog_post->id}}">
 								<h3 class="h4">{{$blog_post->title}}</h3></a>

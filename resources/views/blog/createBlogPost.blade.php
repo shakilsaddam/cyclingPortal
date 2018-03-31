@@ -105,6 +105,7 @@
     <fieldset>
         <legend><label>Share your experience here</label></legend>
         <form method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
@@ -148,11 +149,11 @@
             <div class="form-group row">
                 <label for="photo_gallery" class="col-sm-2 col-form-label">Photos for Photo Gallery</label>
                 <div class="col-sm-10">
-                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="photo_gallery" required/>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="photo_gallery[]" multiple required/>
                 </div>
             </div>
 
-            <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+            {{--<input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">--}}
             <div class="form-group row">
                 <button type="submit" name="submit" class="btn btn-primary">SUBMIT</button>
             </div>

@@ -77,20 +77,20 @@
         <main class="post blog-post col-lg-8">
             <div class="container">
                 <div class="post-single">
-                    <div class="post-thumbnail"><img src="/uploads/{{$blog_detail[0]->images}}" alt="..." class="img-fluid"></div>
+                    <div class="post-thumbnail"><img src="/uploads/{{$blog_detail[0]->cover_photo}}" alt="..." class="img-fluid"></div>
                     <div class="post-details">
                         <div class="post-meta d-flex justify-content-between">
 
                             <div class="date meta-last">{{ Carbon\Carbon::parse($blog_detail[0]->date_of_posting)->format('d F | Y') }} </div>
                             <div class="category"><a href="
-                                   @if($blog_detail[0]->categories=='short trip')
+                                   @if($blog_detail[0]->category=='short trip')
                                         /blogs/ShortTrip
-                                   @elseif($blog_detail[0]->categories=='Cross Country')
+                                   @elseif($blog_detail[0]->category=='Cross Country')
                                         /blogs/CrossCountry
-                                    @elseif($blog_detail[0]->categories=='long trip')
+                                    @elseif($blog_detail[0]->category=='long trip')
                                         /blogs/LongTrip
                                     @endif
-                            ">{{$blog_detail[0]->categories}}</a></div>
+                            ">{{$blog_detail[0]->category}}</a></div>
 
 
                             {{--<div class="category"><a href="#">{{$blog_detail[0]->categories}}--}}{{--</a><a href="#">Financial</a>--}}{{--</div>--}}
@@ -101,7 +101,10 @@
                                 <div class="title"><span>{{$blog_detail[0]->fname}} {{$blog_detail[0]->lname}}</span></div></a>
                             <div class="d-flex align-items-center flex-wrap">
                                 <div class="date"><i class="icon-clock"></i><b>Last Updated On:</b>
-                                    {{ Carbon\Carbon::parse($blog_detail[0]->last_updated)->format('d F | Y') }}</div>
+
+
+                                    {{--{{ Carbon\Carbon::parse($blog_detail[0]->last_updated)->format('d F | Y') }}--}}</div>
+
                                 {{--<div class="views"><i class="icon-eye"></i> 500</div>
                                 <div class="comments meta-last"><i class="icon-comment"></i>12</div>--}}
                             </div>
@@ -146,7 +149,7 @@
 
                             @else
                                 <blockquote class="blockquote">
-                                    <p>No Extra photo has been uploaded !!</p>
+                                    <p>No new update !!</p>
                                 </blockquote>
                             @endif
                         </div>
@@ -283,7 +286,7 @@
                     @foreach($latest_posts as $latest_posts)
                     <a href="/blogs/detail/{{$latest_posts->id}}">
                     <div class="item d-flex align-items-center">
-                        <div class="image"><img src="/uploads/{{$latest_posts->images}}" alt="..." class="img-fluid"></div>
+                        <div class="image"><img src="/uploads/{{$latest_posts->cover_photo}}" alt="..." class="img-fluid"></div>
                         <div class="title"><strong>{{$latest_posts->title}}</strong>
                             <div class="d-flex align-items-center">
                                 <div class="views"><i class="icon-clock">{{Carbon\Carbon::parse($latest_posts->date_of_posting)->format('d F | Y')}}</i></div>
