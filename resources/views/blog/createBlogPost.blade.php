@@ -149,7 +149,7 @@
             <div class="form-group row">
                 <label for="photo_gallery" class="col-sm-2 col-form-label">Photos for Photo Gallery</label>
                 <div class="col-sm-10">
-                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="photo_gallery[]" multiple required/>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="photo_gallery[]" multiple/>
                 </div>
             </div>
 

@@ -107,7 +107,7 @@
 					@foreach($blog_posts as $blog_post)
 
 					<div class="post col-xl-4">
-						<div class="post-thumbnail"><a href="/blogs/detail/{{$blog_post->id}}"><img src="/uploads/{{$blog_post->cover_photo}}" alt="..." class="img-fluid"></a></div>
+						<div class="post-thumbnail"><a href="/blogs/detail/{{$blog_post->id}}"><img src="/blog_img/photo/{{$blog_post->cover_photo}}" alt="..." class="img-fluid"></a></div>
 						<div class="post-details">
 							<div class="post-meta d-flex justify-content-between">
 								<div class="date meta-last">{{ Carbon\Carbon::parse($blog_post->date_of_posting)->format('d F | Y') }} </div>
@@ -124,7 +124,8 @@
                                 </div>
 							</div><a href="/blogs/detail/{{$blog_post->id}}">
 								<h3 class="h4">{{$blog_post->title}}</h3></a>
-							<p class="text-muted">{{str_limit($blog_post->description, 200)}}</p>
+
+							<p class="text-muted">{!!str_limit(html_entity_decode($blog_post->description), 200)!!}</p>
 							{{--<a href="blogs/detail/{{$blog_post->id}}">view details</a>--}}
 							<footer class="post-footer d-flex align-items-center"><a href="#" data-toggle="tooltip" title="Uploaded By" class="author d-flex align-items-center flex-wrap">
                                 <div class="avatar"><img src="/uploads/{{$blog_post->profile_photo}}" alt="..." class="img-fluid"></div>

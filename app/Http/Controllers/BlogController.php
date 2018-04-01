@@ -35,7 +35,7 @@ class BlogController extends Controller
 
         $latest_posts = DB::select(DB::raw
         ('SELECT * FROM `blog_posts`
-        ORDER BY date_of_posting
+        ORDER BY date_of_posting DESC
         LIMIT 3'));
 
         $blog_images = DB::select(DB::raw
@@ -150,7 +150,8 @@ class BlogController extends Controller
         $blog_posts->date_of_posting = new \DateTime();
 
         $cover_picture = Input::file('cover_photo');
-        $cover_picture_name = $cover_picture->getClientOriginalName();
+        $cover_picture_name = uniqid().$cover_picture->getClientOriginalName();
+        /*$cover_picture_name = $cover_picture->getClientOriginalName();*/
         $cover_picture->move('blog_img/photo',$cover_picture_name);
 
         $blog_posts->cover_photo = $cover_picture_name;
@@ -163,11 +164,13 @@ class BlogController extends Controller
 
         //If the array is not empty
 
+        if(!is_null($images))
+        {
             foreach($images as $file) {
                 // Set the destination path
                 $destinationPath = 'blog_img/photo';
                 // Get the orginal filname or create the filename of your choice
-                $filename = $file->getClientOriginalName();
+                $filename = uniqid().$file->getClientOriginalName();
                 // Copy the file in our upload folder
                 $file->move($destinationPath, $filename);
 
@@ -176,7 +179,18 @@ class BlogController extends Controller
                     'image_name' => $filename,
                 ]);
             }
-        return 'pass';
+            /*echo '<script language="javascript">';
+            echo 'alert("Invalid Username or Password !!!")';
+            echo '</script>';
+            return view('blog.createBlogPost');*/
+        }
+
+        echo '<script language="javascript">';
+        echo 'alert("Invalid Username or Password !!!")';
+        echo '</script>';
+
+        return redirect('/blogs/home');
+
 
 
         /*foreach (Input::file('photo_gallery') as $gallery)

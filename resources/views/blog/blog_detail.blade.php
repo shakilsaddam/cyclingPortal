@@ -286,7 +286,7 @@
                     @foreach($latest_posts as $latest_posts)
                     <a href="/blogs/detail/{{$latest_posts->id}}">
                     <div class="item d-flex align-items-center">
-                        <div class="image"><img src="/uploads/{{$latest_posts->cover_photo}}" alt="..." class="img-fluid"></div>
+                        <div class="image"><img src="/blog_img/photo/{{$latest_posts->cover_photo}}" alt="..." class="img-fluid"></div>
                         <div class="title"><strong>{{$latest_posts->title}}</strong>
                             <div class="d-flex align-items-center">
                                 <div class="views"><i class="icon-clock">{{Carbon\Carbon::parse($latest_posts->date_of_posting)->format('d F | Y')}}</i></div>
@@ -346,8 +346,8 @@
                     @foreach($blog_images as $blog_image)
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="/uploads/{{$blog_image->image_name}}" target="_blank">
-                                <img src="/uploads/{{$blog_image->image_name}}" alt="Lights" style="width:100%">
+                            <a href="/blog_img/photo/{{$blog_image->image_name}}" target="_blank">
+                                <img src="/blog_img/photo/{{$blog_image->image_name}}" alt="Lights" style="width:100%">
                                 {{--<div class="caption">
                                     <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
                                 </div>--}}
