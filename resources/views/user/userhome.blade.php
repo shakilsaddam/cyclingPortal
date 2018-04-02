@@ -344,9 +344,8 @@
                 <button type="submit" class="btn-primary center-block" onclick="location.href = 'addbike'">Add New Bike</button>
             </div>
 
-
-
         @endif
+
 
 
         <!-- Blogs -->
@@ -383,7 +382,7 @@
                                 <td>
                                     <button type="submit" class="btn-default" name="edit_blog" onclick="location.href = '/blogs/edit/{{$blogs->id}}'">Edit</button>
                                     <button type="submit" class="btn-warning" name="delete_blog">Delete</button>
-                                    <button type="submit" class="btn-success" name="update_blog">Post an Update</button>
+                                    <button type="submit" class="btn-success" name="update_blog" data-toggle="modal" data-target="#update_blog">Post an Update</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -396,7 +395,67 @@
 
         </div>
 
+<!-- Blog Update Modal -->
+            
+<div class="modal fade" id="update_blog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 
+    <div class="loginmodal-container">
+        <h3><b>Add a recent update</b></h3><br>
+
+        <form method="post" action="/blogs/update">
+
+            <div>
+                <p>For example: Bus fare has been changed to 500tk recently</p>
+                <textarea rows="3" class="form-control" name="blog_update_text" required></textarea>
+            </div>
+            <div>
+                <input type="submit" class=" btn btn-info" name="submit_blog_update" value="SUBMIT"/>
+                <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                <input type="hidden" name="bike_id" value="{{$bike->id}}">
+            </div>
+
+
+            {{--<table>
+                <tr>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr>
+                    <td><h4 style="color: red">Total Used: (year) </h4></td>
+                    <td><input type="text" name="total_used" placeholder="Ex. 1 year" required></td>
+                </tr>
+                <tr>
+                    <td><h4 style="color: red">Price: (taka)</h4></td>
+                    <td><input type="text" name="price" placeholder="Ex. 15000" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="radio" name="is_nagotiatable" value="1"> Nagotiatable<br>
+                        <input type="radio" name="is_nagotiatable" value="0"> Fixed<br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><h4 style="color: red;">Comment:</h4></td>
+                    <td><input type="text" name="comment" placeholder="place your comment here"></td>
+
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" class="btn-primary" name="submit_other_info" style="float: right" value="SUBMIT"/>
+                        <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                    </td>
+                </tr>
+            </table>--}}
+        </form>
+
+
+    </div>
+</div>
 
 
 

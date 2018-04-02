@@ -155,12 +155,12 @@ class FetchUserInfoController extends Controller
         //dd(request()->all());
         $bike_info=DB::select(DB::raw
         ('SELECT bike_infos.brand,bike_infos.bike_model,bike_infos.bike_photo,bike_infos.present_status,user_details.fname,user_details.profile_photo 
-FROM bike_infos
-JOIN bike_histories
-ON bike_infos.id=bike_histories.bike_id
-JOIN user_details
-ON bike_histories.user_id=user_details.id
-WHERE bike_infos.chasses_no= :chasses_no'),array('chasses_no'=>$chasses_no,));
+            FROM bike_infos
+            JOIN bike_histories
+            ON bike_infos.id=bike_histories.bike_id
+            JOIN user_details
+            ON bike_histories.user_id=user_details.id
+            WHERE bike_infos.chasses_no= :chasses_no'),array('chasses_no'=>$chasses_no,));
 
 
 
