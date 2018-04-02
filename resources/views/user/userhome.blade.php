@@ -349,6 +349,57 @@
         @endif
 
 
+        <!-- Blogs -->
+        <div class="container col-sm-12" style="text-align: center; margin-bottom: 100px; margin-top: 100px">
+            <div class="col-md-12">
+                <label><h2>Blogs</h2></label>
+            </div>
+
+            <div class="col-lg-12 well">
+
+                <div class="col-sm-12">
+                    <div class="col-md-2" style="margin-bottom: 30px">
+                        <input type="button" class="btn btn-primary" name="add_new_blog" value="Add New Blog"/>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">Sl No</th>
+                                <th>Blog Title</th>
+                                <th class="col-md-4">Actions</th>
+                            </tr>
+                        </thead>
+
+                        @if(!empty($blogs))
+                        <tbody>
+                        @foreach($blogs as $indexkey=>$blogs)
+                            <tr>
+                                <td>{{$indexkey+1}}</td>
+                                <td>{{$blogs->title}}</td>
+                                <td>
+                                    <button type="submit" class="btn-default" name="edit_blog" onclick="location.href = '/blogs/edit/{{$blogs->id}}'">Edit</button>
+                                    <button type="submit" class="btn-warning" name="delete_blog">Delete</button>
+                                    <button type="submit" class="btn-success" name="update_blog">Post an Update</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                        @endif
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
         <div class="container" style="text-align: center; margin-bottom: 100px;">
 
         </div>

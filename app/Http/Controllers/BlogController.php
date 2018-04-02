@@ -166,7 +166,8 @@ class BlogController extends Controller
 
         if(!is_null($images))
         {
-            foreach($images as $file) {
+            foreach($images as $file)
+            {
                 // Set the destination path
                 $destinationPath = 'blog_img/photo';
                 // Get the orginal filname or create the filename of your choice

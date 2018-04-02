@@ -61,12 +61,20 @@ class FetchUserInfoController extends Controller
                     'user_id' => $user_id,)
             );
 
+
+            $blogs = DB::select(DB::raw
+            ('SELECT blog_posts.id, blog_posts.title
+            FROM blog_posts, user_details
+            WHERE user_details.id=blog_posts.posted_by AND user_details.id=:user_id'), array('user_id' => $user_id,)
+            );
+
+
             $personal_info = User_detail::where('id', '=', $user_id)->get();
 
             $upforsale_info = DB::select(DB::raw('SELECT bike_id FROM up_for_sales WHERE is_sold=0 '));
 
             //return $bikes;
-            return view('user.userhome', compact('bikes', 'personal_info','upforsale_info'));
+            return view('user.userhome', compact('bikes', 'personal_info','upforsale_info','blogs'));
             //return view('user.userhome')->with('bikes',$bikes,'personal_info',$personal_info);
         }
     }
