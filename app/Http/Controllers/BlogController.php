@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog_image;
 use App\Blog_post;
+use App\Blog_update;
 use App\Http\Requests\UploadPhotoRequest;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -180,10 +181,6 @@ class BlogController extends Controller
                     'image_name' => $filename,
                 ]);
             }
-            /*echo '<script language="javascript">';
-            echo 'alert("Invalid Username or Password !!!")';
-            echo '</script>';
-            return view('blog.createBlogPost');*/
         }
 
         echo '<script language="javascript">';
@@ -275,6 +272,41 @@ class BlogController extends Controller
         echo "Record inserted successfully.<br/>";*/
         //return $description;
         //return view('blog.createBlogPost', compact('description'));
+
+    }
+
+    public function updateBlog()
+    {
+        $blog_id = request('blog_id');
+        $update_text = request('blog_update_text');
+        $update_date = date('Y-m-d');
+
+        Blog_update::create([
+            'blog_id' => $blog_id,
+            'update_date' => $update_date,
+            'texts' => $update_text
+        ]);
+        echo '<script language="javascript">';
+        echo 'alert("Successfully added !!!")';
+        echo '</script>';
+
+        return redirect('/userhome');
+    }
+
+
+    public function test_del()
+    {
+        $test_blog = DB::table("blog_test")->get();
+        return view('blog.testDel',compact('test_blog'));
+    }
+
+    public function destroy($id)
+
+    {
+
+        DB::table("blog_test")->delete($id);
+
+        return response()->json(['success'=>"Product Deleted successfully.", 'tree'=>'tr_'.$id]);
 
     }
 

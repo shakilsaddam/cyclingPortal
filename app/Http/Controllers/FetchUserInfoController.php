@@ -73,6 +73,9 @@ class FetchUserInfoController extends Controller
 
             $upforsale_info = DB::select(DB::raw('SELECT bike_id FROM up_for_sales WHERE is_sold=0 '));
 
+
+            /*return view('products',compact('products'));*/
+
             //return $bikes;
             return view('user.userhome', compact('bikes', 'personal_info','upforsale_info','blogs'));
             //return view('user.userhome')->with('bikes',$bikes,'personal_info',$personal_info);
@@ -190,4 +193,5 @@ class FetchUserInfoController extends Controller
 
         //return view('result',compact('bike_info',$bike_info,'chasses_no',$chasses_no));
     }
+
 }

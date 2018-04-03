@@ -10,4 +10,10 @@ class Blog_update extends Model
     {
         return $this->belongsTo('App\Blog_post');
     }
+    protected $fillable = [
+        'blog_id',
+        'update_date',
+        'texts'
+    ];
+    public $timestamps = false;
 }

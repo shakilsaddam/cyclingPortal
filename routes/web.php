@@ -65,6 +65,10 @@ Route::get('/people', function (){
 /*Route::get('/blogs/home','BlogController@index');*/
 Route::get('/blogs/upload','BlogController@createBlog');
 Route::POST('/blogs/upload','BlogController@storeBlog');
+Route::POST('/blogs/update','BlogController@updateBlog');
+
+Route::get('/blogs/delete/','BlogController@test_del');
+Route::delete('/blogs/delete/{id}', 'BlogController@destroy');
 
 Route::get('/blogs/test', function(){
     return view('blog.htmleditor');

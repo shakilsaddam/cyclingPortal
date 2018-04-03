@@ -348,61 +348,62 @@
 
 
 
-        <!-- Blogs -->
-        <div class="container col-sm-12" style="text-align: center; margin-bottom: 100px; margin-top: 100px">
-            <div class="col-md-12">
-                <label><h2>Blogs</h2></label>
+<!-- Blogs -->
+<div class="container col-sm-12" style="text-align: center; margin-bottom: 100px; margin-top: 100px">
+    <div class="col-md-12">
+        <label><h2>Blogs</h2></label>
+    </div>
+
+    <div class="col-lg-12 well">
+
+        <div class="col-sm-12">
+            <div class="col-md-2" style="margin-bottom: 30px">
+                <input type="button" class="btn btn-primary" name="add_new_blog" value="Add New Blog"/>
             </div>
-
-            <div class="col-lg-12 well">
-
-                <div class="col-sm-12">
-                    <div class="col-md-2" style="margin-bottom: 30px">
-                        <input type="button" class="btn btn-primary" name="add_new_blog" value="Add New Blog"/>
-                    </div>
-                </div>
-
-
-                <div class="col-md-12 table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="col-md-1">Sl No</th>
-                                <th>Blog Title</th>
-                                <th class="col-md-4">Actions</th>
-                            </tr>
-                        </thead>
-
-                        @if(!empty($blogs))
-                        <tbody>
-                        @foreach($blogs as $indexkey=>$blogs)
-                            <tr>
-                                <td>{{$indexkey+1}}</td>
-                                <td>{{$blogs->title}}</td>
-                                <td>
-                                    <button type="submit" class="btn-default" name="edit_blog" onclick="location.href = '/blogs/edit/{{$blogs->id}}'">Edit</button>
-                                    <button type="submit" class="btn-warning" name="delete_blog">Delete</button>
-                                    <button type="submit" class="btn-success" name="update_blog" data-toggle="modal" data-target="#update_blog">Post an Update</button>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                        @endif
-
-                    </table>
-                </div>
-            </div>
-
         </div>
 
-<!-- Blog Update Modal -->
-            
-<div class="modal fade" id="update_blog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 
+        <div class="col-md-12 table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="col-md-1">No</th>
+                        <th>Blog Title</th>
+                        <th class="col-md-4">Actions</th>
+                    </tr>
+                </thead>
+
+                @if(!empty($blogs))
+                <tbody>
+                @foreach($blogs as $indexkey=>$blog)
+                    <tr>
+                        <td>{{$indexkey+1}}</td>
+                        <td>{{$blog->title}}</td>
+                        <td>
+                            <button type="submit" class="btn-default" name="edit_blog" onclick="location.href = '/blogs/edit/{{$blog->id}}'">Edit</button>
+                            <button type="submit" class="btn-warning" name="delete_blog">Delete</button>
+                            <button type="submit" class="btn-success" name="update_blog" data-toggle="modal" data-target="#update_blog_{{$blog->id}}">Post an Update</button>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+                @endif
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- Blog Update Modal -->
+
+@foreach($blogs as $blog_modal)
+
+<div class="modal fade" id="update_blog_{{$blog_modal->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="loginmodal-container">
         <h3><b>Add a recent update</b></h3><br>
 
-        <form method="post" action="/blogs/update">
+        <form method="POST" action="/blogs/update">
 
             <div>
                 <p>For example: Bus fare has been changed to 500tk recently</p>
@@ -411,52 +412,14 @@
             <div>
                 <input type="submit" class=" btn btn-info" name="submit_blog_update" value="SUBMIT"/>
                 <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                <input type="hidden" name="bike_id" value="{{$bike->id}}">
+                <input type="hidden" name="blog_id" value="{{$blog_modal->id}}">
             </div>
 
-
-            {{--<table>
-                <tr>
-                    <td colspan="2"></td>
-                </tr>
-
-                <tr>
-                    <td><h4 style="color: red">Total Used: (year) </h4></td>
-                    <td><input type="text" name="total_used" placeholder="Ex. 1 year" required></td>
-                </tr>
-                <tr>
-                    <td><h4 style="color: red">Price: (taka)</h4></td>
-                    <td><input type="text" name="price" placeholder="Ex. 15000" required></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="radio" name="is_nagotiatable" value="1"> Nagotiatable<br>
-                        <input type="radio" name="is_nagotiatable" value="0"> Fixed<br>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><h4 style="color: red;">Comment:</h4></td>
-                    <td><input type="text" name="comment" placeholder="place your comment here"></td>
-
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" class="btn-primary" name="submit_other_info" style="float: right" value="SUBMIT"/>
-                        <input type="hidden" name="_token" name="token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="bike_id" value="{{$bike->id}}">
-                    </td>
-                </tr>
-            </table>--}}
         </form>
-
-
     </div>
 </div>
 
+@endforeach
 
 
         <div class="container" style="text-align: center; margin-bottom: 100px;">
@@ -534,6 +497,15 @@
     </div>
 </header>
 <!-- end header -->
+
+
+
+<!-- test -->
+
+
+<!-- end of test -->
+
+
 
 
 <!-- begin footer -->
