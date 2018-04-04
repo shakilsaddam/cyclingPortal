@@ -67,6 +67,10 @@ Route::get('/blogs/upload','BlogController@createBlog');
 Route::POST('/blogs/upload','BlogController@storeBlog');
 Route::POST('/blogs/update','BlogController@updateBlog');
 
+Route::get('/blogs/edit/{blog_id}','BlogController@editBlog');
+Route::POST('/blogs/edit/','BlogController@storEditedBlog');
+
+
 Route::get('/blogs/delete/','BlogController@test_del');
 Route::delete('/blogs/delete/{id}', 'BlogController@destroy');
 

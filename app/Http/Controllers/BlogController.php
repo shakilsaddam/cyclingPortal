@@ -293,6 +293,42 @@ class BlogController extends Controller
         return redirect('/userhome');
     }
 
+    public function editBlog($blog_id)
+    {
+        $detail_of_blog = Blog_post::where('id',$blog_id)->firstOrFail();
+        $blog_images = Blog_image::all()->where('blog_id',$blog_id);
+
+        //return $detail_of_blog;
+        return view('blog.editBlogPost',compact('detail_of_blog','blog_images'));
+    }
+
+    public function storEditedBlog()
+    {
+
+        $blog_id = request('blog_id');
+        $title = request('blog_title');
+        $description = request('description');
+        $new_cover_photo = request('new_cover_photo');
+
+        if (!empty($new_cover_photo))
+        {
+            Blog_post::where('id',$blog_id)
+                ->update(['title'=>$title, 'description'=>$description, 'cover_photo'=>$new_cover_photo]);
+        }
+        else
+        {
+            Blog_post::where('id',$blog_id)
+                ->update(['title'=>$title, 'description'=>$description]);
+        }
+
+        echo '<script language="javascript">';
+        echo 'alert("Successfully added !!!")';
+        echo '</script>';
+
+
+        return redirect('/userhome');
+    }
+
 
     public function test_del()
     {
@@ -306,7 +342,7 @@ class BlogController extends Controller
 
         DB::table("blog_test")->delete($id);
 
-        return response()->json(['success'=>"Product Deleted successfully.", 'tree'=>'tr_'.$id]);
+        return response()->json(['success'=>"Product Deleted successfully.", 'tr'=>'tr_'.$id]);
 
     }
 
