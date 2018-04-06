@@ -330,6 +330,33 @@ class BlogController extends Controller
     }
 
 
+    public function accessDenied()
+    {
+        $latest_posts = DB::select(DB::raw
+        ('SELECT * FROM `blog_posts`
+        ORDER BY date_of_posting DESC
+        LIMIT 3'));
+
+        $count_all_posts = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts')
+        );
+
+        $count_long_trip = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE category = "Long Trip"')
+        );
+
+        $count_short_trip = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE category = "Short Trip"')
+        );
+
+        $count_cross_country = DB::select(DB::raw
+        ('SELECT COUNT(id) AS total FROM blog_posts WHERE category = "Cross Country"')
+        );
+
+        return view('errors.access_denied', compact('latest_posts','count_all_posts','count_cross_country','count_long_trip','count_short_trip'));
+    }
+
+
     public function test_del()
     {
         $test_blog = DB::table("blog_test")->get();

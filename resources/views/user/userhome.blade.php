@@ -358,7 +358,8 @@
 
         <div class="col-sm-12">
             <div class="col-md-2" style="margin-bottom: 30px">
-                <input type="button" class="btn btn-primary" name="add_new_blog" value="Add New Blog"/>
+                <button type="submit" class="btn btn-primary" name="add_new_blog" onclick="location.href = '/blogs/upload'">Add New Blog</button>
+
             </div>
         </div>
 

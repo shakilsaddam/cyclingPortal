@@ -37,38 +37,28 @@
 <body >
 <div class="fh5co-loader"></div>
 <div id="page">
-    <!-- begin navbar -->
-    <nav class="fh5co-nav" style="background-color: slategrey">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <div class="col-xs-2"></div>
-                    <div id="fh5co-logo" class="col-xs-8"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
-                    <div class="col-xs-2"><a href="/registration">Register</a></div>
-                </div>
-                <div class="col-xs-12 text-center menu-1">
-                    <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="disc.html">Travelling Blog</a></li>
-                        <!--
-                        <li class="has-dropdown">
-                            <a href="#">Travelling Blog</a>
-                            <ul class="dropdown">
-                                <li><a href="asian-dest.html">Asian</a></li>
-                                <li><a href="japan-dest.html">Japan</a></li>
-                                <li><a href="europe-dest.html">Europe</a></li>
-                            </ul>
-
-                        </li>-->
-                        <li><a href="disc.html">Forum</a></li>
-                        <li><a href="about.html">Buy or Sell</a></li>
-                        <li><a href="blog.html">About</a></li>
-                    </ul>
-                </div>
+<!-- begin navbar -->
+<nav class="fh5co-nav" style="background-color: slategrey">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="col-xs-2"></div>
+                <div id="fh5co-logo" class="col-xs-8"><a href="index.html">Cycling Portal Bangladesh<span>.</span></a></div>
+                <div class="col-xs-2"><a href="/registration">Register</a></div>
+            </div>
+            <div class="col-xs-12 text-center menu-1">
+                <ul>
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/blogs/home">Travelling Blog</a></li>
+                    <li><a href="/forum/home">Forum</a></li>
+                    <li><a href="/buyorsale/home">Buy or Sell</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
             </div>
         </div>
-    </nav>
-    <!-- end navbar -->
+    </div>
+</nav>
+<!-- end navbar -->
 
 
 

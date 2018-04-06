@@ -64,6 +64,7 @@ Route::get('/people', function (){
 //Routes - Blog
 /*Route::get('/blogs/home','BlogController@index');*/
 Route::get('/blogs/upload','BlogController@createBlog');
+Route::get('/blogs/edit/5','BlogController@accessDenied');
 Route::POST('/blogs/upload','BlogController@storeBlog');
 Route::POST('/blogs/update','BlogController@updateBlog');
 
@@ -75,7 +76,7 @@ Route::get('/blogs/delete/','BlogController@test_del');
 Route::delete('/blogs/delete/{id}', 'BlogController@destroy');
 
 Route::get('/blogs/test', function(){
-    return view('blog.htmleditor');
+    return view('errors.access_denied');
 });
 
 Route::get('/blogs/{url_name}','BlogController@index1');

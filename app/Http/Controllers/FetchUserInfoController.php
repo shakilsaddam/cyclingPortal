@@ -185,11 +185,25 @@ class FetchUserInfoController extends Controller
         WHERE bike_infos.chasses_no= :chasses_no'),array('chasses_no'=>$chasses_no,));
 
 
+        if (empty($bike_info))
+        {
+            $data = array([
+                "title"=>"Hellow",
+                "description"=>"test"
+            ]);
+            return json_encode(array('pojo' => $data));
+
+            //return response()->json(['pojo'=>'Logged out'],200);
+        }
+        else
+        {
+            return json_encode(array('pojo' => $bike_info));
+        }
         //$data = json_encode(array('shakil'=>$bike_info));
 
         //$bike_info = Bike_info::select('*')->where('chasses_no','=',$chasses_no)->get();
         //return response()->json(compact('bike_info'));
-        return json_encode(array('pojo' => $bike_info));
+        //return json_encode(array('pojo' => $bike_info));
 
         //return view('result',compact('bike_info',$bike_info,'chasses_no',$chasses_no));
     }
